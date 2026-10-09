@@ -32,7 +32,8 @@ async function getJson(url, tries = 3){
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return await res.json();
     }catch(e){
-      console.log(`  attempt ${i}/${tries} failed: ${e.message}`);
+      const why = e.cause ? ' (' + (e.cause.code || e.cause.message) + ')' : '';
+      console.log(`  attempt ${i}/${tries} failed: ${e.message}${why}`);
       if (i < tries) await sleep(3000 * i);
     }
   }
@@ -63,6 +64,7 @@ async function fromApi(){
       await sleep(400);
     }
     console.log(`${state}: ${got} price rows`);
+    if (!rows.length && state === STATES[0]){ console.log('::warning::The first state could not be downloaded, so the others are skipped.'); break; }
     await sleep(400);
   }
   if (!rows.length) return null;
