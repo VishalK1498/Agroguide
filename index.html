@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1f5130">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>Agroguide - बळीराजाचा सोबती</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +41,7 @@ header.top{background:rgba(15,47,27,.9);-webkit-backdrop-filter:blur(14px) satur
   background:linear-gradient(135deg,#ffd45c,#f2a900);box-shadow:0 4px 12px rgba(242,169,0,.45)}
 .brand small{display:block;font-weight:500;font-size:.72rem;color:var(--turmeric-l);opacity:.95;margin-top:-5px;letter-spacing:.02em}
 nav.links{display:flex;flex-wrap:wrap;gap:4px;margin-left:auto;align-items:center}
-nav.links a{color:#e3efe3;text-decoration:none;padding:9px 10px;border-radius:30px;font-weight:500;font-size:.92rem;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s,transform .2s}
+nav.links a{color:#e3efe3;text-decoration:none;padding:9px 11px;border-radius:30px;font-weight:500;font-size:.92rem;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s,transform .2s}
 nav.links a:hover{background:rgba(255,255,255,.14);color:#fff}
 nav.links a.active{background:linear-gradient(135deg,#ffd45c,#f2a900);color:var(--green-d);font-weight:700;box-shadow:0 4px 14px rgba(242,169,0,.4)}
 .nav-tools{display:flex;gap:10px;align-items:center}
@@ -67,6 +71,7 @@ nav.links a.active{background:linear-gradient(135deg,#ffd45c,#f2a900);color:var(
 }
 @keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @media (max-width:520px){ .brand small{display:none} .nav-tools .btn{padding:7px 13px;font-size:.85rem} .brand{font-size:1.15rem} }
+@media (max-width:440px){ .brand>span:last-child{display:none} .nav-row{gap:8px} .lang button{padding:5px 10px} .nav-tools{gap:6px} }
 @media (max-width:440px){ .brand>span:last-child{display:none} .nav-row{gap:8px} .lang button{padding:5px 10px} .nav-tools{gap:6px} }
 
 /* ---------- PAGES ---------- */
@@ -287,72 +292,59 @@ footer a:hover{color:var(--turmeric-l);transform:translateX(5px)}
 #toTop:hover{transform:translateY(-4px)}
 
 
-/* ---------- WEATHER & NDVI ---------- */
-.wx-controls,.map-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin:0 auto 26px;max-width:760px}
-.wx-controls .form-control,.map-tools .form-control{width:auto;min-width:220px;flex:1 1 220px;max-width:340px}
-.wx-label{font-weight:700;color:var(--green-d)}
-.map-tools input[type=range]{accent-color:var(--leaf);width:160px}
-.wx-msg{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;color:var(--muted);box-shadow:var(--shadow-sm)}
-.wx-msg .btn{margin-left:10px}
-.wx-now{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;border-radius:var(--radius);padding:28px;color:#fff;box-shadow:var(--shadow-lg);
-  background:radial-gradient(circle at 90% 10%,rgba(255,212,92,.35),transparent 45%),linear-gradient(135deg,#1c6aa8,#2b8fce 55%,#58b6e8)}
-.wx-place{font-weight:700;opacity:.95;margin-bottom:6px}
-.wx-big{display:flex;align-items:center;gap:18px}
-.wx-ic{font-size:4rem;line-height:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
-.wx-temp{font-size:3.2rem;font-weight:800;line-height:1}
-.wx-lab{font-size:1.1rem;opacity:.95}
-.wx-facts{display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:12px;flex:1 1 280px;max-width:420px}
-.wx-facts div{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 14px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.wx-facts small{display:block;opacity:.9;font-size:.82rem}
-.wx-facts b{font-size:1.25rem}
-.wx-h{margin:34px 0 14px;color:var(--green-d);font-weight:800}
-.wx-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px}
-.wx-day{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 12px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
-.wx-day:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.wx-day.today{border:2px solid var(--turmeric);background:linear-gradient(180deg,#fffbe9,#fff)}
-.wx-day .d{font-weight:700;color:var(--green-d);font-size:.95rem}
-.wx-day .i{font-size:2.2rem;margin:6px 0 2px}
-.wx-day .l{font-size:.85rem;color:var(--muted);min-height:2.4em}
-.wx-day .t{font-size:1.05rem;font-weight:800;color:var(--ink)}
-.wx-day .t span{color:var(--muted);font-weight:600}
-.wx-day .m{font-size:.85rem;color:#1c6aa8;margin-top:6px;font-weight:600}
-.wx-day .e{font-size:.78rem;color:var(--muted);margin-top:2px}
-.wx-advice{margin-top:26px;background:linear-gradient(135deg,#eaf7ec,#f6fbf2);border:1px solid var(--line);border-left:7px solid var(--leaf);border-radius:16px;padding:20px 24px;box-shadow:var(--shadow-sm)}
-.wx-advice h3{margin:0 0 8px;color:var(--green-d)}
-.wx-advice ul{margin:0 0 10px;padding-left:22px}
-.wx-advice small{color:var(--muted)}
-.wx-imd{margin:26px auto 0;text-align:center;max-width:680px}
-.wx-imd p{color:var(--muted);margin:0 0 12px}
-.map-wrap{position:relative}
-#wxMap{height:460px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--line);background:#dfeadb;z-index:0}
-#wxMapMsg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5}
-.ndvi-legend{display:flex;align-items:center;gap:10px;max-width:420px;margin:14px auto 0;font-size:.9rem;color:var(--muted);font-weight:600}
-.ndvi-legend i{flex:1;height:14px;border-radius:8px;border:1px solid rgba(0,0,0,.1);background:linear-gradient(90deg,#8c5a2b,#d9c27a,#f1e68a,#a6d46a,#4caf50,#1b5e20)}
-.wx-note{text-align:center;color:var(--muted);font-size:.88rem;max-width:720px;margin:14px auto 0}
-@media (max-width:560px){.wx-now{padding:20px}.wx-temp{font-size:2.6rem}#wxMap{height:380px}}
+/* ---------- PRICES (official links) ---------- */
+.official-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;max-width:1000px;margin:0 auto}
+.official-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;text-decoration:none;color:inherit;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s,border-color .3s}
+.official-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--leaf)}
+.official-card .oi{font-size:2rem;width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#eaf6ea,#c8e3cc);display:grid;place-items:center;margin-bottom:12px}
+.official-card h3{margin:0 0 6px;color:var(--green-d)}
+.official-card p{margin:0 0 14px;color:var(--muted);font-size:.96rem}
+.official-card .go{margin-top:auto;font-weight:700;color:var(--green)}
+.mk-inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0 14px;margin-bottom:6px}
+.mk-inputs input{width:100%;padding:13px;border-radius:12px;border:2px solid #e8dca0;font-size:1rem;background:#fff}
+.mk-inputs input:focus{outline:none;border-color:var(--turmeric);box-shadow:0 0 0 4px rgba(242,169,0,.2)}
+.mk-note{font-size:.85rem;color:var(--muted);margin:12px 0 0}
+.enam-card{margin:34px auto 0;max-width:820px;background:linear-gradient(135deg,#fff8e1,#fffdf5);border:1px solid #ffe082;border-left:8px solid #f57c00;border-radius:18px;padding:26px 28px;box-shadow:var(--shadow)}
+.enam-card h3{margin:0 0 8px;color:#b45309;font-weight:800}
+.enam-card ol,.enam-card ul{padding-left:22px;margin:10px 0 18px}
+.enam-card ul{margin-bottom:0}
+.enam-card li{margin-bottom:6px}
+.calc-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+.calc-res div{background:#fff;border:1px solid var(--line);border-left:6px solid var(--leaf);border-radius:12px;padding:12px 14px}
+.calc-res small{display:block;color:var(--muted)}
+.calc-res b{font-size:1.25rem;color:var(--green-d)}
+.calc-res .net{border-left-color:var(--turmeric);background:#fffbe9}
 
 
-/* ---------- MARKET PRICES ---------- */
-.mk-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 auto 20px;max-width:900px}
-.mk-chip{padding:10px 18px;border:2px solid var(--green);background:#fff;color:var(--green);border-radius:40px;cursor:pointer;font-weight:700;font-size:.95rem;box-shadow:var(--shadow-sm);transition:.2s}
-.mk-chip:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-.mk-chip.on{background:linear-gradient(135deg,#2f7d46,#1f5130);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(31,81,48,.35)}
-.mk-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:6px 0 20px}
-.mk-tile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow-sm);border-top:5px solid var(--leaf)}
-.mk-tile.hi{border-top-color:var(--turmeric);background:linear-gradient(180deg,#fffbe9,#fff)}
-.mk-tile small{display:block;color:var(--muted);font-weight:600}
-.mk-tile b{display:block;font-size:1.5rem;color:var(--green-d);line-height:1.2;margin-top:2px}
-.mk-tile span{display:block;color:var(--muted);font-size:.88rem;margin-top:2px}
-.mk-unit{text-align:right;color:var(--muted);font-size:.85rem;margin:0 4px 6px;font-weight:600}
-.mk-table-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow-sm)}
-.mk-table{width:100%;border-collapse:collapse;min-width:640px;font-size:.96rem}
-.mk-table th{position:sticky;top:0;background:linear-gradient(135deg,#dcebd9,#eef7ec);color:var(--green-d);text-align:left;padding:12px 14px;font-weight:800;white-space:nowrap}
-.mk-table td{padding:11px 14px;border-top:1px solid #edf2ea}
-.mk-table tr:nth-child(even) td{background:#fafdf9}
-.mk-table tr:hover td{background:#f1f8ee}
-.mk-table .n{text-align:right;white-space:nowrap}
-.mk-table .modal{font-weight:800;color:var(--green-d)}
-.mk-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:18px}
+/* ---------- PEST GUIDE / HELPLINES / SHARE ---------- */
+.sym-btn{padding:10px 16px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;border-radius:40px;font-weight:600;transition:.2s;box-shadow:var(--shadow-sm);font-size:.95rem}
+.sym-btn:hover{border-color:var(--leaf);transform:translateY(-2px)}
+.sym-btn.on{background:linear-gradient(135deg,#f06a1d,#d9560b);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(217,86,11,.3)}
+#pgResults{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+#pgResults .pg-head{grid-column:1/-1;font-weight:800;color:var(--green-d);font-size:1.15rem;margin:0}
+#pgResults .wx-msg,#pgResults .pg-none{grid-column:1/-1}
+.pg-none{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;color:var(--muted);box-shadow:var(--shadow-sm)}
+.pg-card{background:#fff;border:1px solid var(--line);border-top:6px solid var(--c,#d9560b);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.pg-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.pg-card.dis{--c:#7b3fb0}.pg-card.pest{--c:#d9560b}
+.pg-badge{display:inline-block;align-self:flex-start;font-size:.8rem;font-weight:700;color:#fff;background:var(--c);border-radius:20px;padding:3px 12px;margin-bottom:8px}
+.pg-card h3{margin:0 0 8px;color:var(--green-d);font-size:1.18rem}
+.pg-match{font-size:.85rem;color:var(--green);font-weight:700;margin-bottom:6px}
+.pg-card .lab{font-weight:700;color:var(--c);margin-top:6px}
+.pg-card p{margin:2px 0 8px}
+.pg-card ul{margin:2px 0 10px;padding-left:20px}
+.pg-card li{margin-bottom:4px;font-size:.95rem}
+.pg-help{margin:30px auto 0;max-width:820px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#eaf7ec,#f6fbf2);border:1px solid var(--line);border-left:8px solid var(--leaf);border-radius:18px;padding:22px 26px;box-shadow:var(--shadow-sm)}
+.pg-help h3{margin:0 0 4px;color:var(--green-d)}
+.pg-help p{margin:0;color:var(--muted);font-size:.93rem;max-width:520px}
+.doc-item.hl{gap:12px}
+.doc-item.hl span{flex:1}
+.doc-item.hl small{display:block;color:var(--muted);font-weight:400;font-size:.82rem}
+.doc-item.hl em{font-style:normal;font-weight:800;color:var(--green);white-space:nowrap}
+.doc-item.hl::after{content:"📞"}
+.share-btn{margin-top:10px;border:0;border-radius:12px;padding:10px;cursor:pointer;font-weight:700;color:#fff;background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 6px 14px rgba(18,140,126,.3);transition:.2s;width:100%;font-size:.95rem}
+.share-btn:hover{filter:brightness(1.07);transform:translateY(-2px)}
+footer a.hidden{display:none}
 
 /* scroll-reveal (only active when JS adds the "js" class) */
 .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
@@ -374,7 +366,7 @@ footer a:hover{color:var(--turmeric-l);transform:translateX(5px)}
       <a data-page="home" onclick="showPage('home')" data-i18n="nav_home"></a>
       <a data-page="schemes" onclick="showPage('schemes')" data-i18n="nav_schemes"></a>
       <a data-page="crops" onclick="showPage('crops')" data-i18n="nav_crops"></a>
-      <a data-page="weather" onclick="showPage('weather')" data-i18n="nav_weather"></a>
+      <a data-page="pests" onclick="showPage('pests')" data-i18n="nav_pests"></a>
       <a data-page="market" onclick="showPage('market')" data-i18n="nav_market"></a>
       <a data-page="advice" onclick="showPage('advice')" data-i18n="nav_advice"></a>
       <a data-page="help" onclick="showPage('help')" data-i18n="nav_help"></a>
@@ -501,80 +493,82 @@ footer a:hover{color:var(--turmeric-l);transform:translateX(5px)}
   </div>
 </div>
 
-<!-- ================= WEATHER & NDVI ================= -->
-<div id="weather" class="page">
-  <div class="wrap pad">
-    <h2 class="page-title" data-i18n="wx_title"></h2>
-    <p class="page-sub" data-i18n="wx_sub"></p>
-
-    <div class="wx-controls">
-      <label for="wxDistrict" class="wx-label" data-i18n="wx_district"></label>
-      <select id="wxDistrict" class="form-control" onchange="wxPick(this.value)"></select>
-      <button class="btn btn-green btn-sm" onclick="wxLocate()" data-i18n="wx_locate"></button>
-    </div>
-
-    <div id="wxNow"></div>
-    <h3 class="wx-h" data-i18n="wx_7day"></h3>
-    <div class="wx-days" id="wxDays"></div>
-    <div class="wx-advice" id="wxAdvice"></div>
-
-    <div class="wx-imd">
-      <p data-i18n="wx_imd_note"></p>
-      <a class="btn btn-gold btn-sm" href="https://mausam.imd.gov.in/" target="_blank" rel="noopener" data-i18n="wx_imd"></a>
-    </div>
-
-    <h2 class="page-title" style="margin-top:56px" data-i18n="ndvi_title"></h2>
-    <p class="page-sub" data-i18n="ndvi_sub"></p>
-    <div class="map-tools">
-      <label for="ndviDate" class="wx-label" data-i18n="ndvi_date"></label>
-      <select id="ndviDate" class="form-control" onchange="setNdvi()"></select>
-      <label for="ndviOpacity" class="wx-label" data-i18n="ndvi_opacity"></label>
-      <input id="ndviOpacity" type="range" min="20" max="100" value="80" oninput="setNdviOpacity(this.value)">
-    </div>
-    <div class="map-wrap">
-      <div id="wxMap" role="application" aria-label="NDVI map"></div>
-      <div id="wxMapMsg" class="wx-msg hidden"></div>
-    </div>
-    <div class="ndvi-legend"><span data-i18n="ndvi_low"></span><i></i><span data-i18n="ndvi_high"></span></div>
-    <p class="wx-note" data-i18n="ndvi_note"></p>
-    <p class="wx-note" data-i18n="wx_credit"></p>
-  </div>
-</div>
-
-<!-- ================= MARKET PRICES ================= -->
+<!-- ================= MANDI PRICES (official links + calculator) ================= -->
 <div id="market" class="page">
   <div class="wrap pad">
     <h2 class="page-title" data-i18n="mk_title"></h2>
     <p class="page-sub" data-i18n="mk_sub"></p>
 
-    <div class="wx-controls">
-      <label for="mkState" class="wx-label" data-i18n="mk_state"></label>
-      <select id="mkState" class="form-control" onchange="mkPickState(this.value)"></select>
-      <label for="mkDistrict" class="wx-label" data-i18n="mk_district"></label>
-      <select id="mkDistrict" class="form-control" onchange="mkPickDistrict(this.value)"></select>
-    </div>
-    <div class="mk-chips" id="mkChips"></div>
-    <div class="wx-controls">
-      <select id="mkOther" class="form-control" onchange="mkPickOther(this.value)"></select>
-      <input id="mkSearchBox" class="form-control" type="search" oninput="mkSearchInput(this.value)" data-i18n-ph="mk_search">
+    <div class="official-grid">
+      <a class="official-card" href="https://enam.gov.in/web/dashboard/agmarknet" target="_blank" rel="noopener">
+        <span class="oi">📊</span><h3 data-i18n="mk_c1_t"></h3><p data-i18n="mk_c1_d"></p><span class="go" data-i18n="mk_open"></span></a>
+      <a class="official-card" href="https://agmarknet.gov.in/" target="_blank" rel="noopener">
+        <span class="oi">🏛️</span><h3 data-i18n="mk_c2_t"></h3><p data-i18n="mk_c2_d"></p><span class="go" data-i18n="mk_open"></span></a>
+      <a class="official-card" href="https://enam.gov.in/" target="_blank" rel="noopener">
+        <span class="oi">🛒</span><h3 data-i18n="mk_c3_t"></h3><p data-i18n="mk_c3_d"></p><span class="go" data-i18n="mk_open"></span></a>
     </div>
 
-    <div id="mkSummary"></div>
-    <div id="mkTableWrap" class="mk-table-wrap"></div>
-    <p class="wx-note" data-i18n="mk_note"></p>
-    <p class="wx-note" data-i18n="mk_src"></p>
-
-    <h2 class="page-title" style="margin-top:56px" data-i18n="enam_title"></h2>
-    <p class="page-sub" data-i18n="enam_sub"></p>
-    <div class="steps">
-      <div class="step"><h3 data-i18n="enam1_t"></h3><p data-i18n="enam1_d"></p></div>
-      <div class="step"><h3 data-i18n="enam2_t"></h3><p data-i18n="enam2_d"></p></div>
-      <div class="step"><h3 data-i18n="enam3_t"></h3><p data-i18n="enam3_d"></p></div>
+    <div class="calc-box" style="max-width:820px;margin:34px auto 0">
+      <h3 style="margin-top:0;color:#f57f17" data-i18n="mkc_title"></h3>
+      <p data-i18n="mkc_sub"></p>
+      <div class="mk-inputs">
+        <div class="input-group"><label for="mkPrice" data-i18n="mkc_price"></label><input id="mkPrice" type="number" min="0" step="any" inputmode="decimal"></div>
+        <div class="input-group"><label for="mkQty" data-i18n="mkc_qty"></label><input id="mkQty" type="number" min="0" step="any" inputmode="decimal"></div>
+        <div class="input-group"><label for="mkCost" data-i18n="mkc_cost"></label><input id="mkCost" type="number" min="0" step="any" inputmode="decimal"></div>
+      </div>
+      <button class="btn btn-green" onclick="mkCalc()" data-i18n="mkc_btn"></button>
+      <div id="mkCalcOut"></div>
+      <p class="mk-note" data-i18n="mkc_note"></p>
     </div>
-    <p class="wx-note" data-i18n="enam_note"></p>
-    <div class="mk-links">
-      <a class="btn btn-gold" href="https://enam.gov.in/web/" target="_blank" rel="noopener" data-i18n="enam_btn"></a>
-      <a class="btn btn-green" href="https://agmarknet.gov.in/" target="_blank" rel="noopener" data-i18n="agm_btn"></a>
+
+    <div class="enam-card">
+      <h3 data-i18n="mk_tips_t"></h3>
+      <ul>
+        <li data-i18n="mk_tip1"></li><li data-i18n="mk_tip2"></li><li data-i18n="mk_tip3"></li><li data-i18n="mk_tip4"></li>
+      </ul>
+    </div>
+
+    <div class="enam-card">
+      <h3 data-i18n="enam_title"></h3>
+      <p data-i18n="enam_text"></p>
+      <ol>
+        <li data-i18n="enam_s1"></li>
+        <li data-i18n="enam_s2"></li>
+        <li data-i18n="enam_s3"></li>
+      </ol>
+      <a class="btn btn-gold" href="https://enam.gov.in/" target="_blank" rel="noopener" data-i18n="enam_btn"></a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PEST & DISEASE GUIDE ================= -->
+<div id="pests" class="page">
+  <div class="wrap pad">
+    <h2 class="page-title" data-i18n="pg_title"></h2>
+    <p class="page-sub" data-i18n="pg_sub"></p>
+
+    <span class="step-label" data-i18n="pg_s1"></span>
+    <div class="btn-group" id="pgCrops"></div>
+
+    <span class="step-label" data-i18n="pg_s2"></span>
+    <div class="btn-group" id="pgSyms"></div>
+    <p style="margin:12px 0 0"><button class="btn btn-green btn-sm" onclick="pgClear()" data-i18n="pg_clear"></button></p>
+
+    <div id="pgResults"></div>
+
+    <div class="pg-help">
+      <div>
+        <h3 data-i18n="pg_unsure"></h3>
+        <p data-i18n="pg_note"></p>
+      </div>
+      <a class="btn btn-gold" href="tel:18001801551" data-i18n="pg_call"></a>
+    </div>
+
+    <div class="enam-card" style="margin-top:26px">
+      <h3 data-i18n="pg_safety_t"></h3>
+      <ul>
+        <li data-i18n="pg_safe1"></li><li data-i18n="pg_safe2"></li><li data-i18n="pg_safe3"></li><li data-i18n="pg_safe4"></li>
+      </ul>
     </div>
   </div>
 </div>
@@ -614,6 +608,17 @@ footer a:hover{color:var(--turmeric-l);transform:translateX(5px)}
         <a class="doc-item" target="_blank" rel="noopener" href="https://pmfby.gov.in/" data-i18n="p_insurance"></a>
         <a class="doc-item" target="_blank" rel="noopener" href="https://myaadhaar.uidai.gov.in/" data-i18n="p_aadhaar"></a>
         <a class="doc-item" target="_blank" rel="noopener" href="https://mahadbt.maharashtra.gov.in/" data-i18n="p_mahadbt"></a>
+        <a class="doc-item" target="_blank" rel="noopener" href="https://mausam.imd.gov.in/" data-i18n="p_imd"></a>
+        <a class="doc-item" target="_blank" rel="noopener" href="https://enam.gov.in/" data-i18n="p_enam"></a>
+      </div>
+      <div class="panel">
+        <h2 data-i18n="hl_title"></h2>
+        <a class="doc-item hl" href="tel:18001801551"><span><b data-i18n="hl_kcc"></b><small data-i18n="hl_kcc_d"></small></span><em>1800-180-1551</em></a>
+        <a class="doc-item hl" href="tel:155261"><span><b data-i18n="hl_pmk"></b><small data-i18n="hl_pmk_d"></small></span><em>155261</em></a>
+        <a class="doc-item hl" href="tel:1800115526"><span><b data-i18n="hl_pmk2"></b><small data-i18n="hl_pmk_d"></small></span><em>1800-115-526</em></a>
+        <a class="doc-item hl" href="tel:14447"><span><b data-i18n="hl_pmfby"></b><small data-i18n="hl_pmfby_d"></small></span><em>14447</em></a>
+        <a class="doc-item hl" href="tel:18002700224"><span><b data-i18n="hl_enam"></b><small data-i18n="hl_enam_d"></small></span><em>1800-270-0224</em></a>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:0" data-i18n="hl_note"></p>
       </div>
       <div class="panel" style="flex:1.5">
         <h2 data-i18n="calc_title"></h2>
@@ -713,7 +718,10 @@ footer a:hover{color:var(--turmeric-l);transform:translateX(5px)}
       <div><h4 data-i18n="foot_acc"></h4>
         <a onclick="showPage('account','login')" data-i18n="login"></a>
         <a onclick="showPage('account','signup')" data-i18n="signup"></a>
-        <a onclick="showPage('advice')" data-i18n="nav_advice"></a></div>
+        <a onclick="showPage('advice')" data-i18n="nav_advice"></a>
+        <a onclick="shareSite()" data-i18n="share_site"></a>
+        <a id="installBtn" class="hidden" onclick="installApp()" data-i18n="pwa_install"></a>
+        <a id="iosHint" class="hidden" data-i18n="pwa_ios" style="font-size:.85rem;color:#a8c4a8"></a></div>
     </div>
     <div class="copy">&copy; 2026 Agroguide | <span data-i18n="foot_copy"></span></div>
   </div>
@@ -811,48 +819,55 @@ const T = {
  e_domain:["हा वेबसाईट पत्ता Firebase मध्ये मंजूर नाही. Authentication > Settings > Authorized domains मध्ये जोडा.","This website address is not authorised in Firebase. Add it under Authentication > Settings > Authorized domains."],
  e_rules:["डेटाबेस नियम परवानगी देत नाहीत. firestore.rules Publish केले आहेत का ते तपासा.","The database rules refused this. Check that you published firestore.rules."],
  e_db:["डेटाबेसशी संपर्क होत नाही. Firestore Database तयार केले आहे का आणि इंटरनेट चालू आहे का ते तपासा.","Cannot reach the database. Check that Firestore Database is created and that you are online."],
- nav_weather:["हवामान","Weather"],
- f7_t:["हवामान आणि पीक नकाशा","Weather & crop map"], f7_d:["जिल्ह्यानुसार ७ दिवसांचा अंदाज, शेती सल्ला आणि उपग्रह NDVI नकाशा.","7-day district forecast, farm tips and a satellite NDVI crop-greenness map."],
- wx_title:["🌦️ हवामान आणि पीक नकाशा","🌦️ Weather & crop map"], wx_sub:["तुमचा जिल्हा निवडा आणि पुढील ७ दिवसांचा अंदाज व शेती सल्ला पहा.","Pick your district to see the 7-day forecast and farm tips."],
- wx_district:["जिल्हा","District"], wx_locate:["📍 माझा जिल्हा शोधा","📍 Use my location"], wx_loc_err:["स्थान मिळाले नाही. यादीतून जिल्हा निवडा.","Could not get your location. Please choose a district."],
- wx_loading:["हवामान माहिती आणत आहे...","Loading weather..."], wx_err:["हवामान माहिती मिळाली नाही. इंटरनेट तपासा.","Could not load the weather. Check your internet."], wx_retry:["पुन्हा प्रयत्न करा","Try again"],
- wx_feels:["जाणवणारे तापमान","Feels like"], wx_hum:["आर्द्रता","Humidity"], wx_wind:["वारा","Wind"], wx_rain:["पाऊस","Rain"],
- wx_7day:["पुढील ७ दिवस","Next 7 days"], wx_today:["आज","Today"], wx_chance:["शक्यता","chance"], wx_et0:["बाष्पीभवन","Evaporation"],
- wx_tips:["🌾 पुढील दिवसांसाठी शेती सल्ला","🌾 Farm tips for the coming days"],
- tip_rain:["पुढील ३ दिवसांत पावसाची शक्यता आहे. फवारणी व खत देणे पुढे ढकला आणि शेतातील निचरा मोकळा ठेवा.","Rain is likely in the next 3 days. Postpone spraying and fertiliser, and keep drainage channels clear."],
- tip_wind:["आज वारा जोरात आहे. फवारणी टाळा.","Strong wind today. Avoid spraying."],
- tip_heat:["४०°C पेक्षा जास्त उष्णता येऊ शकते. सकाळी किंवा संध्याकाळी पाणी द्या आणि आच्छादन करा.","Very hot days ahead (above 40°C). Irrigate early morning or evening and use mulch."],
- tip_cold:["थंड रात्री येतील. रोपवाटिका व कोवळ्या पिकांचे संरक्षण करा.","Cold nights ahead. Protect nurseries and young plants."],
- tip_dry:["आठवडाभर कोरडे हवामान आणि जास्त बाष्पीभवन. सिंचनाचे नियोजन करा.","A dry week with high evaporation. Plan your irrigation."],
- tip_humid:["आर्द्रता जास्त आहे. बुरशीजन्य रोगांसाठी पिकांची पाहणी करा.","High humidity. Scout your crops for fungal diseases."],
- tip_ok:["हवामान शेतीच्या कामांसाठी अनुकूल दिसते.","Weather looks fine for field work."],
- tip_note:["हा सर्वसाधारण सल्ला आहे. तुमच्या पिकासाठी स्थानिक कृषी अधिकारी किंवा KVK चा सल्ला घ्या.","This is general guidance. For your crop, confirm with your local agriculture officer or KVK."],
- wx_imd:["अधिकृत IMD चेतावण्या पहा ↗","See official IMD warnings ↗"], wx_imd_note:["तीव्र हवामानाच्या इशाऱ्यांसाठी नेहमी IMD ची अधिकृत माहिती तसेच मौसम आणि मेघदूत ॲप पहा.","For severe-weather alerts, always check IMD's official warnings and the Mausam and Meghdoot apps."],
- ndvi_title:["🛰️ पीक हिरवळ नकाशा (NDVI)","🛰️ Crop greenness map (NDVI)"],
- ndvi_sub:["गडद हिरवा = दाट पीक/वनस्पती, पिवळसर/तपकिरी = कमी वनस्पती किंवा कोरडी जमीन. जिल्ह्याच्या ठिपक्यावर क्लिक करा.","Dark green = dense crops and vegetation; yellow/brown = sparse vegetation or bare land. Tap a district dot."],
- ndvi_date:["तारीख","Date"], ndvi_latest:["नवीनतम उपलब्ध","Latest available"], ndvi_from:["८ दिवसांचा संच, सुरुवात","8-day composite from"], ndvi_opacity:["पारदर्शकता","Opacity"], ndvi_low:["कमी","Low"], ndvi_high:["जास्त","High"],
- ndvi_note:["उपग्रह प्रतिमा साधारण १-२ आठवडे जुनी असू शकते आणि ढगांमुळे काही भाग अस्पष्ट दिसू शकतात. हे दृश्य मार्गदर्शन आहे, जिल्ह्याची अचूक आकडेवारी नाही.","Satellite images can be 1-2 weeks old and clouds may hide some areas. This is a visual guide, not exact district statistics."],
- map_err:["नकाशा लोड झाला नाही. इंटरनेट तपासा.","The map could not load. Check your internet."],
- wx_credit:["हवामान: Open-Meteo.com (बिगर-व्यावसायिक वापर). उपग्रह: NASA GIBS, MODIS Terra NDVI. नकाशा: © OpenStreetMap योगदानकर्ते.","Weather: Open-Meteo.com (non-commercial use). Satellite: NASA GIBS, MODIS Terra NDVI. Map: © OpenStreetMap contributors."],
- nav_market:["बाजारभाव","Prices"],
- f8_t:["बाजारभाव (मंडी)","Market prices"], f8_d:["राज्यानुसार मंडी भाव आणि e-NAM वर विक्रीची माहिती.","Mandi prices by state, plus how to sell on e-NAM."],
- mk_title:["📈 बाजारभाव (मंडी)","📈 Market prices (mandi)"], mk_sub:["पीक निवडा आणि सर्वोत्तम भाव देणारा बाजार शोधा. भाव प्रति क्विंटल आहेत.","Pick a crop and find the market paying the best price. Prices are per quintal."],
- mk_state:["राज्य","State"], mk_district:["जिल्हा","District"], mk_all_districts:["सर्व जिल्हे","All districts"], mk_search:["बाजार समिती शोधा...","Search market..."],
- mk_other:["-- इतर पीक निवडा --","-- Other crop --"], mk_pick:["वरून एक पीक निवडा.","Choose a crop above."],
- mk_loading:["बाजारभाव आणत आहे...","Loading market prices..."], mk_err:["बाजारभाव सध्या मिळत नाहीत. थोड्या वेळाने पुन्हा प्रयत्न करा.","Market prices are not available right now. Please try again later."],
- mk_nokey:["बाजारभाव अजून उपलब्ध नाहीत. दैनिक अपडेट सुरू झाल्यावर ते इथे दिसतील.","Prices are not available yet. They will appear here once the daily update is running."],
- mk_updated:["भाव दिनांक","Prices dated"], mk_stale:["हे भाव जुने असू शकतात","These prices may be out of date"], mk_none:["या निवडीसाठी भाव सापडले नाहीत.","No prices found for this selection."],
- mk_markets:["बाजार","Markets"], mk_avg:["सरासरी भाव","Average price"], mk_high:["सर्वाधिक भाव","Highest price"], mk_low:["सर्वात कमी भाव","Lowest price"],
- mk_th_market:["बाजार समिती","Market"], mk_th_district:["जिल्हा","District"], mk_th_variety:["जात","Variety"], mk_th_min:["किमान","Min"], mk_th_max:["कमाल","Max"], mk_th_modal:["सर्वसाधारण","Modal"], mk_th_date:["तारीख","Date"],
- mk_unit:["₹ प्रति क्विंटल","₹ per quintal"], mk_trunc:["पहिल्या १५० ओळी दाखवल्या आहेत. जिल्हा किंवा बाजार शोधून यादी कमी करा.","Showing the first 150 rows. Narrow the list with the district or market search."],
- mk_note:["हे बाजार समित्यांनी दररोज कळवलेले घाऊक भाव आहेत, थेट भाव नाहीत. प्रत्यक्ष भाव मालाच्या दर्जानुसार वेगळा असू शकतो; विक्रीपूर्वी बाजारात खात्री करा.","These are wholesale prices reported daily by markets, not live prices. Your actual price depends on quality, so confirm at the market before selling."],
- mk_src:["स्रोत: Agmarknet / data.gov.in (भारत सरकार).","Source: Agmarknet / data.gov.in (Government of India)."],
- enam_title:["🏛️ e-NAM वर विक्री आणि खरेदी","🏛️ Buy and sell on e-NAM"], enam_sub:["e-NAM हे सरकारचे ऑनलाइन कृषी बाजार आहे. नोंदणी आणि व्यवहार अधिकृत e-NAM पोर्टलवरच होतात.","e-NAM is the government's online agricultural market. Registration and trading happen on the official e-NAM portal."],
- enam1_t:["नोंदणी करा","Register"], enam1_d:["अधिकृत e-NAM वेबसाईटवर किंवा जवळच्या e-NAM मंडीत शेतकरी म्हणून नोंदणी करा. आधार, बँक पासबुक आणि मोबाईल नंबर तयार ठेवा.","Register as a farmer on the official e-NAM website or at your nearest e-NAM mandi. Keep Aadhaar, bank passbook and mobile number ready."],
- enam2_t:["माल आणा","Bring your produce"], enam2_d:["माल e-NAM शी जोडलेल्या मंडीत न्या. तेथे त्याची प्रत तपासली जाते आणि तो ऑनलाइन लिलावासाठी ठेवला जातो.","Take it to an e-NAM linked mandi, where quality is checked and it is listed for online bidding."],
- enam3_t:["ऑनलाइन बोली","Online bidding"], enam3_d:["खरेदीदार ऑनलाइन बोली लावतात आणि पैसे तुमच्या बँक खात्यात जमा होतात.","Buyers bid online and payment is credited to your bank account."],
- enam_note:["नियम बदलू शकतात. सध्याच्या अटींसाठी e-NAM पोर्टल पहा. आमची साईट e-NAM वर व्यवहार करत नाही.","Rules can change, so check the e-NAM portal for current requirements. This website does not carry out e-NAM trades."],
- enam_btn:["e-NAM पोर्टल उघडा ↗","Open the e-NAM portal ↗"], agm_btn:["Agmarknet वर अधिक भाव ↗","More prices on Agmarknet ↗"],
+ nav_market:["बाजारभाव","Prices"], p_imd:["हवामान आणि इशारे (IMD)","Weather & warnings (IMD)"], p_enam:["e-NAM पोर्टल","e-NAM portal"],
+ f7_t:["बाजारभाव आणि e-NAM","Mandi prices & e-NAM"], f7_d:["अधिकृत भाव पोर्टलचे दुवे, विक्री कॅल्क्युलेटर आणि e-NAM वर विक्रीची माहिती.","Links to official price portals, a sale calculator and how to sell on e-NAM."],
+ mk_title:["💹 बाजारभाव आणि e-NAM","💹 Mandi prices & e-NAM"], mk_sub:["आजचे अधिकृत भाव सरकारी पोर्टलवर पहा. खालील कार्डावर क्लिक करा.","See today's official prices on the government portals. Tap a card below."],
+ mk_c1_t:["e-NAM भाव डॅशबोर्ड","e-NAM price dashboard"], mk_c1_d:["राज्य, जिल्हा, बाजार समिती आणि शेतमाल निवडून किमान, सर्वसाधारण व कमाल भाव पहा.","Choose state, district, market and crop to see minimum, modal and maximum prices."],
+ mk_c2_t:["Agmarknet","Agmarknet"], mk_c2_d:["केंद्र सरकारचे बाजारभाव आणि आवक यांचे अधिकृत पोर्टल.","The central government's official portal for mandi prices and arrivals."],
+ mk_c3_t:["e-NAM पोर्टल","e-NAM portal"], mk_c3_d:["शेतकरी म्हणून नोंदणी करा आणि ऑनलाइन विक्रीची माहिती मिळवा.","Register as a farmer and learn about selling online."],
+ mk_open:["उघडा ↗","Open ↗"],
+ mkc_title:["🧮 विक्री कॅल्क्युलेटर","🧮 Sale calculator"], mkc_sub:["भाव प्रति क्विंटल (१०० किलो) टाका आणि तुमच्या मालाची अंदाजे कमाई पहा.","Enter the price per quintal (100 kg) to estimate what your produce will earn."],
+ mkc_price:["भाव (₹ प्रति क्विंटल)","Price (₹ per quintal)"], mkc_qty:["माल (क्विंटल)","Quantity (quintals)"], mkc_cost:["खर्च (₹ प्रति क्विंटल: वाहतूक, हमाली, कमिशन)","Costs (₹ per quintal: transport, loading, commission)"],
+ mkc_btn:["हिशोब करा","Calculate"], mkc_err:["कृपया भाव आणि मालाचे प्रमाण टाका.","Please enter the price and the quantity."],
+ mkc_gross:["एकूण विक्री","Total sale value"], mkc_costs:["एकूण खर्च","Total costs"], mkc_net:["हातात येणारी रक्कम","Amount you keep"], mkc_kg:["प्रति किलो (खर्च वजा)","Per kg (after costs)"],
+ mkc_note:["हे फक्त अंदाज आहेत. प्रत्यक्ष खर्च व कपात बाजार समितीनुसार वेगळी असू शकते.","These are estimates only. Actual costs and deductions vary by mandi."],
+ mk_tips_t:["💡 विक्रीपूर्वी हे करा","💡 Before you sell"],
+ mk_tip1:["किमान २-३ बाजार समित्यांचे भाव तपासा.","Check prices in at least 2-3 mandis."],
+ mk_tip2:["'सर्वसाधारण (modal)' भाव पाहा; बहुतेक व्यवहार त्या भावाने झालेले असतात.","Look at the 'modal' price; most deals happened around it."],
+ mk_tip3:["माल तुमच्या समोर तोलून घ्या आणि पैसे कधी मिळतील ते विचारा.","Have the produce weighed in front of you and ask when payment will arrive."],
+ mk_tip4:["वाहतूक व हमालीचा खर्च वजा करून भावांची तुलना करा.","Subtract transport and loading costs before comparing prices."],
+ enam_title:["e-NAM वर विक्री व खरेदी","Sell or buy on e-NAM"],
+ enam_text:["e-NAM हे सरकारचे ऑनलाइन कृषी बाजार व्यासपीठ आहे. व्यवहार फक्त e-NAM च्या अधिकृत पोर्टलवर होतात; ही साईट व्यवहार करत नाही.","e-NAM is the government's online agricultural market. Trading happens only on e-NAM's official portal; this site does not carry out trades."],
+ enam_s1:["अधिकृत पोर्टलवर शेतकरी म्हणून नोंदणी करा (आधार, बँक खाते आणि मोबाईल नंबर तयार ठेवा; नियम बदलू शकतात).","Register as a farmer on the official portal (keep Aadhaar, bank account and mobile number ready; rules can change)."],
+ enam_s2:["तुमची जवळची बाजार समिती e-NAM शी जोडलेली आहे का ते तपासा.","Check whether a mandi near you is connected to e-NAM."],
+ enam_s3:["सहसा मालाची गुणवत्ता तपासली जाते आणि ऑनलाइन लिलाव होतो; वरील भावांशी तुलना करा.","Produce is usually quality-checked and sold by online auction; compare with the prices above."],
+ enam_btn:["e-NAM पोर्टल उघडा ↗","Open the e-NAM portal ↗"],
+ nav_pests:["कीड-रोग मार्गदर्शन","Pests"],
+ f8_t:["कीड व रोग मार्गदर्शक","Pest & disease guide"], f8_d:["पीक निवडा, लक्षणे निवडा आणि संभाव्य कीड/रोग व पहिले उपाय पहा.","Pick your crop, tick the signs you see, and get the likely problem with first steps."],
+ pg_title:["🐛 कीड व रोग मार्गदर्शक","🐛 Pest & disease guide"], pg_sub:["पीक निवडा, तुम्हाला दिसणारी लक्षणे निवडा आणि संभाव्य कीड/रोग व पहिले उपाय पहा.","Pick your crop, tick the signs you see, and get the likely pest or disease with first steps."],
+ pg_s1:["पायरी १: पीक निवडा","Step 1: Choose the crop"], pg_s2:["पायरी २: काय दिसते? (एक किंवा अधिक निवडा)","Step 2: What do you see? (tick one or more)"], pg_clear:["निवड पुसा","Clear ticks"],
+ pg_pest:["कीड","Pest"], pg_dis:["रोग","Disease"], pg_look:["👀 कसे दिसते","👀 What it looks like"], pg_do:["✅ काय करावे","✅ What to do first"],
+ pg_match:["जुळणारी लक्षणे","Matching signs"], pg_of:["पैकी","of"],
+ pg_all:["या पिकातील सामान्य कीड व रोग","Common pests and diseases of this crop"], pg_best:["तुमच्या लक्षणांशी सर्वाधिक जुळणारे","Best match for the signs you ticked"],
+ pg_none:["तुमच्या निवडीशी जुळणारी कीड/रोग यादीत नाही. किसान कॉल सेंटरला फोन करा किंवा नमुना KVK ला दाखवा.","Nothing in the list matches your ticks. Call the Kisan Call Centre or show a sample to your KVK."],
+ pg_unsure:["खात्री नाही? मोफत सल्ला घ्या","Not sure? Get free advice"], pg_call:["📞 १८००-१८०-१५५१ वर फोन करा","📞 Call 1800-180-1551"],
+ pg_note:["हे सर्वसाधारण मार्गदर्शन आहे, निदान नाही. औषधांची नावे व मात्रा यासाठी जवळचे कृषी विज्ञान केंद्र (KVK) किंवा कृषी अधिकारी यांचा सल्ला घ्या.","This is general guidance, not a diagnosis. For product names and doses, ask your nearest KVK or agriculture officer."],
+ pg_safety_t:["⚠️ फवारणी करताना सुरक्षितता","⚠️ Stay safe when spraying"],
+ pg_safe1:["फक्त नोंदणीकृत (CIB&RC) कीटकनाशके वापरा आणि लेबल पूर्ण वाचा.","Use only registered (CIB&RC) pesticides and read the whole label."],
+ pg_safe2:["फवारणीवेळी मास्क, हातमोजे व पूर्ण अंगाचे कपडे घाला; वाऱ्याच्या दिशेने फवारू नका.","Wear a mask, gloves and full-sleeve clothes; do not spray against the wind."],
+ pg_safe3:["औषधे मुलांपासून दूर ठेवा; फवारणीनंतर हात-तोंड साबणाने धुवा.","Keep chemicals away from children; wash hands and face with soap after spraying."],
+ pg_safe4:["काढणीपूर्वीचा प्रतीक्षा कालावधी (waiting period) पाळा.","Follow the waiting period before harvest."],
+ sym_spots:["पानांवर ठिपके / करपा","Spots or blight on leaves"], sym_yellow:["पाने पिवळी पडणे","Yellowing leaves"], sym_curl:["पाने गुंडाळणे / वाकडी-तिकडी","Curled or twisted leaves"],
+ sym_holes:["पाने कुरतडलेली / छिद्रे","Chewed leaves or holes"], sym_wilt:["झाड सुकणे / मरणे","Wilting or drying plants"], sym_sticky:["लहान कीटक, चिकटपणा किंवा काळी बुरशी","Tiny insects, sticky or sooty leaves"],
+ sym_powder:["पानांवर पांढरी / भुरकट बुरशी","White or powdery growth"], sym_fruit:["शेंगा, बोंडे, दाणे किंवा फळे खराब","Damaged pods, bolls, grains or fruit"], sym_stem:["खोड / मुळे कुजणे किंवा पोखरलेली","Rotting or bored stems or roots"], sym_tip:["मधला कोंब सुकणे (डेड हार्ट)","Dead central shoot (dead heart)"],
+ hl_title:["📞 मोफत हेल्पलाइन","📞 Free helplines"], hl_kcc:["किसान कॉल सेंटर","Kisan Call Centre"], hl_kcc_d:["शेतीविषयक मोफत सल्ला","Free farming advice"],
+ hl_pmk:["पीएम-किसान हेल्पलाइन","PM-KISAN helpline"], hl_pmk2:["पीएम-किसान (टोल-फ्री)","PM-KISAN (toll-free)"], hl_pmk_d:["हप्ता व नोंदणीविषयी","Instalments and registration"],
+ hl_pmfby:["पीक विमा (PMFBY) हेल्पलाइन","Crop insurance (PMFBY) helpline"], hl_pmfby_d:["विमा तक्रार व माहिती","Insurance claims and information"],
+ hl_enam:["e-NAM हेल्पडेस्क","e-NAM help desk"], hl_enam_d:["e-NAM नोंदणी व मदत","e-NAM registration and help"],
+ hl_note:["क्रमांक सरकारी स्रोतांनुसार आहेत; वेळा बदलू शकतात. कॉल लागला नाही तर अधिकृत पोर्टल तपासा.","Numbers are from government sources; hours can change. If a call does not connect, check the official portal."],
+ share_wa:["WhatsApp वर शेअर करा","Share on WhatsApp"], share_site:["साईट WhatsApp वर शेअर करा","Share this site on WhatsApp"],
+ share_text:["Agroguide: शेतकऱ्यांसाठी सरकारी योजना, पीक मार्गदर्शन आणि कीड-रोग माहिती.","Agroguide: government schemes, crop guidance and pest and disease help for farmers."],
+ pwa_install:["📲 अ‍ॅप म्हणून इंस्टॉल करा","📲 Install as an app"], pwa_ios:["iPhone वर: Share → Add to Home Screen","On iPhone: Share, then Add to Home Screen"],
  ok_signup:["खाते यशस्वीरित्या तयार झाले!","Account created successfully!"], ok_login:["स्वागत आहे!","Welcome back!"], ok_logout:["तुम्ही लॉगआउट झालात.","You have been logged out."],
  acc_member:["Agroguide सदस्य","Agroguide member"], acc_hist:["तुमचे जतन केलेले प्रश्न","Your saved questions"], acc_nohist:["अजून कोणतेही प्रश्न जतन केलेले नाहीत.","No saved questions yet."],
  k_mobile:["मोबाईल","Mobile"], k_village:["गाव","Village"], k_district:["जिल्हा","District"], k_since:["सदस्यत्व","Member since"],
@@ -891,11 +906,21 @@ const SCHEMES = [
   desc:L('नैसर्गिक आपत्तीत पिकांचे नुकसान झाल्यास आर्थिक संरक्षण. शेतकऱ्याचा हिस्सा अत्यल्प असतो.','Financial cover if crops are damaged by natural calamities. The farmer pays only a small share of the premium.'),
   elig:L('अधिसूचित पिके घेणारे शेतकरी. सध्याच्या हंगामाचे नियम तपासा.','Farmers growing notified crops. Check the current season rules.'),
   docs:L('पीक पेरा, आधार, बँक पासबुक.','Crop-sowing declaration, Aadhaar, bank passbook.'), btn:L('येथे अर्ज करा','Apply here')},
+ {cat:'money', c:'#d9560b', link:'https://ladakibahin.maharashtra.gov.in/',
+  title:L('मुख्यमंत्री माझी लाडकी बहीण योजना','Mukhyamantri Majhi Ladki Bahin Yojana'),
+  desc:L('महाराष्ट्रातील पात्र महिलांना दरमहा आर्थिक मदत.','Monthly financial assistance for eligible women in Maharashtra.'),
+  elig:L('२१-६५ वयोगटातील विवाहित/विधवा/गरजू महिला.','Married, widowed or needy women aged 21-65.'),
+  docs:L('आधार, रेशन कार्ड, अधिवास, बँक खाते.','Aadhaar, ration card, domicile, bank account.'), btn:L('येथे अर्ज करा','Apply here')},
  {cat:'money', c:'#d9560b', link:'https://sjsa.maharashtra.gov.in/',
   title:L('संजय गांधी निराधार योजना','Sanjay Gandhi Niradhar Yojana'),
   desc:L('निराधार, वृद्ध आणि अपंगांना मासिक अनुदान.','Monthly allowance for destitute, elderly and disabled persons.'),
   elig:L('निराधार किंवा ६५ वर्षांवरील अल्प उत्पन्न नागरिक.','Destitute or low-income citizens above 65.'),
   docs:L('उत्पन्न दाखला, वय दाखला, आधार.','Income certificate, age proof, Aadhaar.'), btn:L('येथे अर्ज करा','Apply here')},
+ {cat:'money', c:'#d9560b', link:'https://www.indiapost.gov.in/',
+  title:L('सुकन्या समृद्धी योजना','Sukanya Samriddhi Yojana'),
+  desc:L('मुलींच्या शिक्षणासाठी आणि लग्नासाठी दीर्घकालीन बचत योजना.','A long-term savings scheme for a girl child\'s education and marriage.'),
+  elig:L('१० वर्षांच्या आतील मुलींच्या नावे खाते.','Account in the name of a girl under 10 years.'),
+  docs:L('मुलीचा जन्म दाखला, पालकांचे आधार.','Girl\'s birth certificate, parent\'s Aadhaar.'), btn:L('अधिक माहिती','More info')},
  {cat:'money', c:'#d9560b', link:'https://www.mudra.org.in/',
   title:L('प्रधानमंत्री मुद्रा योजना','PM Mudra Yojana'),
   desc:L('सूक्ष्म व्यवसायासाठी ₹१० लाखांपर्यंत विनातारण कर्ज.','Collateral-free loans up to ₹10 lakh for micro businesses.'),
@@ -1107,8 +1132,7 @@ function showPage(id, sub){
   if (id === 'account'){ renderAccount(); if (sub) authTab(sub); }
   if (id === 'advice') prefillAdvice();
   if (id === 'tech') closeTechDetail(true);
-  if (id === 'weather') initWeather();
-  if (id === 'market') initMarket();
+  if (id === 'pests') renderPests();
   try{ history.replaceState(null,'','#'+id); }catch(e){}
   window.scrollTo({top:0});
 }
@@ -1129,8 +1153,8 @@ function renderAll(){
   renderStats(); renderFeatures(); renderHomeSchemes(); renderFaq();
   renderSchemeTabs(); renderSchemes();
   renderSeasonBtns(); renderSoilBtns(); renderCrops(); renderBiz(); renderExpo();
-  renderQuestions(); renderTechMenu();
-  renderWeatherUI(); fillNdviDates(); renderMarket();
+  renderQuestions(); renderTechMenu(); renderPests();
+  mkCalc(true);
   if (currentTech) openTechDetail(currentTech, true);
   renderAuthUI(); renderAccount();
   const ra = $('resultArea'); if (ra.style.display === 'grid') performCalc(true);
@@ -1145,7 +1169,7 @@ function renderStats(){
   ].map(s => `<div class="stat"><b>${num(s[0])}</b><span>${s[1]}</span></div>`).join('');
 }
 function renderFeatures(){
-  const f = [['schemes','📜','f1'],['crops','🌱','f2'],['advice','💬','f3'],['help','🛟','f4'],['tech','🚜','f5'],['weather','🌦️','f7'],['market','📈','f8'],['account','👤','f6']];
+  const f = [['schemes','📜','f1'],['crops','🌱','f2'],['advice','💬','f3'],['help','🛟','f4'],['tech','🚜','f5'],['market','💹','f7'],['pests','🐛','f8'],['account','👤','f6']];
   $('featureGrid').innerHTML = f.map(x => `<button class="feature" onclick="showPage('${x[0]}')"><span class="ic">${x[1]}</span><span><h3>${t(x[2]+'_t')}</h3><p>${t(x[2]+'_d')}</p></span></button>`).join('');
 }
 function schemeCard(s){
@@ -1154,7 +1178,7 @@ function schemeCard(s){
     <p class="detail-text">${esc(tr(s.desc))}</p>
     <span class="label">${t('elig')}</span><p class="detail-text">${esc(tr(s.elig))}</p>
     <span class="label">${t('docs')}</span><p class="detail-text">${esc(tr(s.docs))}</p>
-    <a class="apply-link" href="${s.link}" target="_blank" rel="noopener">${esc(tr(s.btn))}</a></div>`;
+    <a class="apply-link" href="${s.link}" target="_blank" rel="noopener">${esc(tr(s.btn))}</a><button class="share-btn" onclick="shareScheme(${SCHEMES.indexOf(s)})">📤 ${t('share_wa')}</button></div>`;
 }
 function renderHomeSchemes(){ $('homeSchemes').innerHTML = SCHEMES.filter(s=>s.cat==='farm').slice(0,3).map(schemeCard).join(''); }
 function renderFaq(){
@@ -1399,275 +1423,212 @@ function renderAccount(){
 }
 
 /* =====================================================================
-   WEATHER & NDVI MAP
+   PRICES PAGE: sale calculator
    ===================================================================== */
-// [id, marathi, english, latitude, longitude]  (district headquarters)
-const DISTRICTS = [
- ['ahilyanagar','अहिल्यानगर','Ahilyanagar (Ahmednagar)',19.095,74.749],['akola','अकोला','Akola',20.709,77.002],['amravati','अमरावती','Amravati',20.933,77.752],
- ['sambhajinagar','छत्रपती संभाजीनगर','Chhatrapati Sambhajinagar',19.876,75.343],['beed','बीड','Beed',18.989,75.756],['bhandara','भंडारा','Bhandara',21.167,79.650],
- ['buldhana','बुलढाणा','Buldhana',20.531,76.184],['chandrapur','चंद्रपूर','Chandrapur',19.962,79.296],['dhule','धुळे','Dhule',20.902,74.774],
- ['gadchiroli','गडचिरोली','Gadchiroli',20.185,80.003],['gondia','गोंदिया','Gondia',21.460,80.192],['hingoli','हिंगोली','Hingoli',19.718,77.150],
- ['jalgaon','जळगाव','Jalgaon',21.007,75.563],['jalna','जालना','Jalna',19.841,75.886],['kolhapur','कोल्हापूर','Kolhapur',16.705,74.243],
- ['latur','लातूर','Latur',18.408,76.560],['mumbai','मुंबई शहर','Mumbai City',18.975,72.826],['mumbaisub','मुंबई उपनगर','Mumbai Suburban',19.076,72.878],
- ['nagpur','नागपूर','Nagpur',21.146,79.088],['nanded','नांदेड','Nanded',19.138,77.321],['nandurbar','नंदुरबार','Nandurbar',21.370,74.240],
- ['nashik','नाशिक','Nashik',19.998,73.790],['dharashiv','धाराशिव','Dharashiv (Osmanabad)',18.186,76.042],['palghar','पालघर','Palghar',19.697,72.766],
- ['parbhani','परभणी','Parbhani',19.268,76.771],['pune','पुणे','Pune',18.520,73.857],['raigad','रायगड','Raigad',18.641,72.875],
- ['ratnagiri','रत्नागिरी','Ratnagiri',16.990,73.312],['sangli','सांगली','Sangli',16.855,74.565],['satara','सातारा','Satara',17.680,74.018],
- ['sindhudurg','सिंधुदुर्ग','Sindhudurg',16.130,73.690],['solapur','सोलापूर','Solapur',17.659,75.906],['thane','ठाणे','Thane',19.218,72.978],
- ['wardha','वर्धा','Wardha',20.745,78.602],['washim','वाशिम','Washim',20.111,77.133],['yavatmal','यवतमाळ','Yavatmal',20.389,78.120]
-];
-function wmoInfo(c){
-  if (c === 0) return ['☀️', L('स्वच्छ','Clear')];
-  if (c === 1 || c === 2) return ['🌤️', L('अंशतः ढगाळ','Partly cloudy')];
-  if (c === 3) return ['☁️', L('ढगाळ','Cloudy')];
-  if (c === 45 || c === 48) return ['🌫️', L('धुके','Fog')];
-  if (c >= 51 && c <= 57) return ['🌦️', L('रिमझिम','Drizzle')];
-  if (c >= 61 && c <= 67) return ['🌧️', L('पाऊस','Rain')];
-  if (c >= 80 && c <= 82) return ['🌦️', L('पावसाच्या सरी','Rain showers')];
-  if (c >= 95) return ['⛈️', L('वादळी पाऊस','Thunderstorm')];
-  return ['☁️', L('ढगाळ','Cloudy')];
-}
-let wxId = LS.get('agro_district', 'pune');
-if (!DISTRICTS.some(d => d[0] === wxId)) wxId = 'pune';
-let wxData = null, wxLoading = false, wxErr = false;
-let wxMap = null, ndviLayer = null, leafletPromise = null; const wxMarkers = {};
-const wxName = d => lang === 'mr' ? d[1] : d[2];
-const wxLocale = () => lang === 'mr' ? 'mr-IN' : 'en-IN';
-
-async function loadWeather(force){
-  const d = DISTRICTS.find(x => x[0] === wxId), myId = wxId, key = 'agro_wx_' + myId;
-  const cached = LS.get(key, null);
-  if (!force && cached && Date.now() - cached.ts < 30 * 60 * 1000){ wxData = cached.data; wxErr = false; renderWeatherUI(); return; }
-  wxLoading = true; wxErr = false; renderWeatherUI();
-  const url = 'https://api.open-meteo.com/v1/forecast?latitude=' + d[3] + '&longitude=' + d[4] +
-    '&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m' +
-    '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max,et0_fao_evapotranspiration' +
-    '&timezone=Asia%2FKolkata&forecast_days=7';
-  let data = null, err = false;
-  try{ const r = await fetch(url); if (!r.ok) throw new Error('HTTP ' + r.status); data = await r.json(); LS.set(key, {ts: Date.now(), data}); }
-  catch(e){ console.warn('Weather error', e); err = true; }
-  if (myId !== wxId) return;                    // user picked another district meanwhile
-  wxData = data; wxErr = err; wxLoading = false; renderWeatherUI();
-}
-
-function wxAdvice(d, cur){
-  const rain3 = d.precipitation_sum.slice(0,3).reduce((a,b) => a + (b || 0), 0);
-  const pop3 = Math.max(...d.precipitation_probability_max.slice(0,3).map(x => x || 0));
-  const rain7 = d.precipitation_sum.reduce((a,b) => a + (b || 0), 0);
-  const et7 = d.et0_fao_evapotranspiration.reduce((a,b) => a + (b || 0), 0) / d.et0_fao_evapotranspiration.length;
-  const tips = [];
-  if (pop3 >= 60 || rain3 >= 10) tips.push('tip_rain');
-  if ((d.wind_speed_10m_max[0] || 0) >= 25) tips.push('tip_wind');
-  if (Math.max(...d.temperature_2m_max.slice(0,3)) >= 40) tips.push('tip_heat');
-  if (Math.min(...d.temperature_2m_min.slice(0,3)) <= 8) tips.push('tip_cold');
-  if (rain7 < 5 && et7 >= 5) tips.push('tip_dry');
-  if (cur.relative_humidity_2m >= 80 && cur.temperature_2m >= 20 && cur.temperature_2m <= 32) tips.push('tip_humid');
-  if (!tips.length) tips.push('tip_ok');
-  return tips;
-}
-
-function renderWeatherUI(){
-  const sel = $('wxDistrict'); if (!sel) return;
-  sel.innerHTML = DISTRICTS.map(d => `<option value="${d[0]}" ${d[0] === wxId ? 'selected' : ''}>${esc(wxName(d))}</option>`).join('');
-  const nowEl = $('wxNow'), daysEl = $('wxDays'), advEl = $('wxAdvice');
-  const cur = DISTRICTS.find(x => x[0] === wxId);
-  if (wxLoading){
-    nowEl.innerHTML = `<div class="wx-msg">${t('wx_loading')}</div>`; daysEl.innerHTML = ''; advEl.innerHTML = '';
-  } else if (wxErr || (wxData && (!wxData.current || !wxData.daily))){
-    nowEl.innerHTML = `<div class="wx-msg">${t('wx_err')} <button class="btn btn-green btn-sm" onclick="loadWeather(true)">${t('wx_retry')}</button></div>`; daysEl.innerHTML = ''; advEl.innerHTML = '';
-  } else if (!wxData){
-    nowEl.innerHTML = ''; daysEl.innerHTML = ''; advEl.innerHTML = '';
-  } else {
-    const c = wxData.current, d = wxData.daily, info = wmoInfo(c.weather_code);
-    nowEl.innerHTML = `<div class="wx-now"><div><div class="wx-place">📍 ${esc(wxName(cur))}</div>
-      <div class="wx-big"><span class="wx-ic">${info[0]}</span><div><div class="wx-temp">${num(Math.round(c.temperature_2m))}°C</div><div class="wx-lab">${esc(tr(info[1]))}</div></div></div></div>
-      <div class="wx-facts">
-        <div><small>${t('wx_feels')}</small><b>${num(Math.round(c.apparent_temperature))}°C</b></div>
-        <div><small>${t('wx_hum')}</small><b>${num(Math.round(c.relative_humidity_2m))}%</b></div>
-        <div><small>${t('wx_wind')}</small><b>${num(Math.round(c.wind_speed_10m))} km/h</b></div>
-        <div><small>${t('wx_rain')}</small><b>${num(c.precipitation)} mm</b></div></div></div>`;
-    daysEl.innerHTML = d.time.map((day, i) => {
-      const inf = wmoInfo(d.weather_code[i]);
-      const label = i === 0 ? t('wx_today') : new Date(day + 'T00:00:00').toLocaleDateString(wxLocale(), {weekday:'short', day:'numeric', month:'short'});
-      return `<div class="wx-day ${i === 0 ? 'today' : ''}"><div class="d">${esc(label)}</div><div class="i">${inf[0]}</div><div class="l">${esc(tr(inf[1]))}</div>
-        <div class="t">${num(Math.round(d.temperature_2m_max[i]))}° <span>/ ${num(Math.round(d.temperature_2m_min[i]))}°</span></div>
-        <div class="m">💧 ${num((d.precipitation_sum[i] || 0).toFixed(1))} mm · ${num(d.precipitation_probability_max[i] ?? 0)}%</div>
-        <div class="e">${t('wx_et0')}: ${num((d.et0_fao_evapotranspiration[i] || 0).toFixed(1))} mm</div></div>`;
-    }).join('');
-    advEl.innerHTML = `<h3>${t('wx_tips')}</h3><ul>${wxAdvice(d, c).map(k => `<li>${t(k)}</li>`).join('')}</ul><small>${t('tip_note')}</small>`;
-  }
-  updateMarkers();
-}
-
-function wxPick(id){
-  const d = DISTRICTS.find(x => x[0] === id); if (!d) return;
-  wxId = id; LS.set('agro_district', id);
-  if (wxMap) wxMap.panTo([d[3], d[4]]);
-  loadWeather();
-}
-function wxLocate(){
-  if (!navigator.geolocation){ toast(t('wx_loc_err')); return; }
-  navigator.geolocation.getCurrentPosition(pos => {
-    const la = pos.coords.latitude, lo = pos.coords.longitude;
-    let best = null, bd = 1e9;
-    DISTRICTS.forEach(d => { const dx = (d[4] - lo) * Math.cos(la * Math.PI / 180), dy = d[3] - la, dist = dx * dx + dy * dy; if (dist < bd){ bd = dist; best = d; } });
-    if (best) wxPick(best[0]);
-  }, () => toast(t('wx_loc_err')), {timeout: 10000});
-}
-
-/* ---- NDVI map (Leaflet + NASA GIBS) ---- */
-function snap8(d){   // MODIS 8-day composites start on day 1, 9, 17 ... of each year
-  const y = d.getUTCFullYear(), start = Date.UTC(y, 0, 1), doy = Math.floor((d.getTime() - start) / 864e5) + 1;
-  return new Date(start + (doy - ((doy - 1) % 8) - 1) * 864e5);
-}
-function fillNdviDates(){
-  const sel = $('ndviDate'); if (!sel) return;
-  const cur = sel.value || 'default', base = Date.now() - 16 * 864e5;
-  let h = `<option value="default">${t('ndvi_latest')}</option>`;
-  for (let i = 0; i < 6; i++){
-    const d = snap8(new Date(base - i * 8 * 864e5)), iso = d.toISOString().slice(0, 10);
-    h += `<option value="${iso}">${t('ndvi_from')} ${esc(d.toLocaleDateString(wxLocale(), {day:'numeric', month:'short', year:'numeric', timeZone:'UTC'}))}</option>`;
-  }
-  sel.innerHTML = h;
-  sel.value = Array.from(sel.options).some(o => o.value === cur) ? cur : 'default';
-}
-function loadLeaflet(){
-  if (window.L && window.L.map) return Promise.resolve();      // window.L = Leaflet (our own L helper is a different thing)
-  if (leafletPromise) return leafletPromise;
-  leafletPromise = new Promise((res, rej) => {
-    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css'; document.head.appendChild(css);
-    const js = document.createElement('script'); js.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js';
-    js.onload = () => (window.L && window.L.map) ? res() : rej(new Error('Leaflet missing'));
-    js.onerror = () => { leafletPromise = null; rej(new Error('Leaflet failed to load')); };
-    document.head.appendChild(js);
-  });
-  return leafletPromise;
-}
-function setNdvi(){
-  if (!wxMap) return;
-  const LF = window.L;
-  if (ndviLayer) wxMap.removeLayer(ndviLayer);
-  const time = ($('ndviDate') && $('ndviDate').value) || 'default';
-  ndviLayer = LF.tileLayer('https://gibs-{s}.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_NDVI_8Day/default/' + time + '/GoogleMapsCompatible_Level9/{z}/{y}/{x}.png',
-    {subdomains: 'abc', maxNativeZoom: 9, maxZoom: 12, opacity: ($('ndviOpacity').value || 80) / 100, attribution: 'NASA EOSDIS GIBS - MODIS Terra NDVI'}).addTo(wxMap);
-  updateMarkers();
-}
-function setNdviOpacity(v){ if (ndviLayer) ndviLayer.setOpacity(v / 100); }
-function updateMarkers(){
-  if (!wxMap) return;
-  DISTRICTS.forEach(d => {
-    const m = wxMarkers[d[0]]; if (!m) return;
-    const on = d[0] === wxId;
-    m.setStyle({fillColor: on ? '#1f5130' : '#f2a900', color: '#fff'}); m.setRadius(on ? 10 : 7);
-    m.unbindTooltip(); m.bindTooltip(wxName(d), {direction: 'top'});
-    if (on) m.bringToFront();
-  });
-}
-function initMap(){
-  if (wxMap){ setTimeout(() => wxMap.invalidateSize(), 60); return; }
-  const LF = window.L;
-  wxMap = LF.map('wxMap', {scrollWheelZoom: false}).setView([19.4, 76.0], 6);
-  LF.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'}).addTo(wxMap);
-  DISTRICTS.forEach(d => {
-    const m = LF.circleMarker([d[3], d[4]], {radius: 7, weight: 2, color: '#fff', fillColor: '#f2a900', fillOpacity: .95}).addTo(wxMap);
-    m.on('click', () => wxPick(d[0])); wxMarkers[d[0]] = m;
-  });
-  setNdvi(); updateMarkers();
-  setTimeout(() => wxMap.invalidateSize(), 100);
-}
-function initWeather(){
-  fillNdviDates();
-  if (!wxData && !wxLoading) loadWeather();
-  loadLeaflet().then(initMap).catch(() => { const m = $('wxMapMsg'); m.textContent = t('map_err'); m.classList.remove('hidden'); });
+function mkCalc(silent){
+  const out = $('mkCalcOut'); if (!out) return;
+  const p = parseFloat($('mkPrice').value), q = parseFloat($('mkQty').value), c = parseFloat($('mkCost').value) || 0;
+  if (!(p > 0 && q > 0)){ out.innerHTML = ''; if (!silent) toast(t('mkc_err')); return; }
+  const gross = p * q, costs = c * q, net = gross - costs, perKg = (p - c) / 100;
+  out.innerHTML = `<div class="calc-res">
+    <div><small>${t('mkc_gross')}</small><b>${money(gross)}</b></div>
+    <div><small>${t('mkc_costs')}</small><b>${money(costs)}</b></div>
+    <div class="net"><small>${t('mkc_net')}</small><b>${money(net)}</b></div>
+    <div><small>${t('mkc_kg')}</small><b>₹${num(perKg.toFixed(2))}</b></div></div>`;
 }
 
 /* =====================================================================
-   MARKET PRICES  (Agmarknet daily mandi prices via data.gov.in)
+   PEST & DISEASE GUIDE  (symptom checker - no AI, general IPM guidance)
    ===================================================================== */
-const MK_STATES = [['Maharashtra','महाराष्ट्र'],['Karnataka','कर्नाटक'],['Gujarat','गुजरात'],['Madhya Pradesh','मध्य प्रदेश'],['Telangana','तेलंगणा'],
-  ['Andhra Pradesh','आंध्र प्रदेश'],['Rajasthan','राजस्थान'],['Uttar Pradesh','उत्तर प्रदेश'],['Chhattisgarh','छत्तीसगड'],['Punjab','पंजाब'],['Haryana','हरियाणा'],
-  ['Tamil Nadu','तमिळनाडू'],['West Bengal','पश्चिम बंगाल']];
-// [key, emoji, marathi, english, text that appears in the dataset's commodity name]
-const MK_CHIPS = [['onion','🧅','कांदा','Onion','onion'],['tomato','🍅','टोमॅटो','Tomato','tomato'],['potato','🥔','बटाटा','Potato','potato'],
-  ['soybean','🫘','सोयाबीन','Soybean','soya'],['cotton','☁️','कापूस','Cotton','cotton'],['wheat','🌾','गहू','Wheat','wheat'],['jowar','🌾','ज्वारी','Jowar','jowar'],
-  ['bajra','🌾','बाजरी','Bajra','bajra'],['maize','🌽','मका','Maize','maize'],['gram','🫛','हरभरा','Gram','bengal gram'],['tur','🫛','तूर','Tur (Arhar)','arhar'],
-  ['moong','🫛','मूग','Moong','green gram'],['groundnut','🥜','भुईमूग','Groundnut','groundnut'],['paddy','🌾','भात (धान)','Paddy','paddy'],
-  ['pomegranate','🍎','डाळिंब','Pomegranate','pomegranate'],['grapes','🍇','द्राक्षे','Grapes','grapes']];
-let mkState = 'Maharashtra', mkData = null, mkLoading = false, mkErr = '', mkChip = 'onion', mkExact = '', mkDistrict = '', mkSearch = '';
+const PG_CROPS = [
+ ['cotton','🌿',L('कापूस','Cotton')],['soybean','🫘',L('सोयाबीन','Soybean')],['tur','🌱',L('तूर','Tur (pigeon pea)')],['gram','🫛',L('हरभरा','Gram (chickpea)')],
+ ['jowar','🌾',L('ज्वारी','Jowar (sorghum)')],['maize','🌽',L('मका','Maize')],['wheat','🌾',L('गहू','Wheat')],['onion','🧅',L('कांदा','Onion')],
+ ['tomato','🍅',L('टोमॅटो','Tomato')],['pomegranate','🍎',L('डाळिंब','Pomegranate')]
+];
+const PG_SYM = [['spots','🟤'],['yellow','🟡'],['curl','🌀'],['holes','🕳️'],['wilt','🥀'],['sticky','🐜'],['powder','⚪'],['fruit','🍅'],['stem','🪵'],['tip','🌱']];
+// c = crop, t = pest | disease, s = signs, see = what it looks like, doit = first steps (steps separated by |)
+const PG_ISSUES = [
+ {c:'cotton',t:'pest',s:['fruit'],n:L('गुलाबी बोंडअळी','Pink bollworm'),
+  see:L('बोंडे आतून पोखरलेली, फुले अर्धवट उमललेली (गुलाबासारखी), कापसाचा दर्जा खराब आणि बोंडात लहान गुलाबी अळी.','Bolls bored from inside, flowers that stay half-open like a rosette, stained low-grade lint and small pink larvae inside the bolls.'),
+  doit:L('पीक वेळेवर पेरा; फरदड (पीक लांबवणे) घेऊ नका|निरीक्षणासाठी कामगंध सापळे लावा|खराब झालेली फुले व बोंडे गोळा करून नष्ट करा|हंगामानंतर पऱ्हाटी व पिकाचे अवशेष नष्ट करा|फवारणी फक्त नुकसान पातळी ओलांडल्यावर आणि कृषी विद्यापीठ/KVK च्या शिफारशीनुसार करा',
+         'Sow on time; do not keep the crop on for a second picking|Put up pheromone traps to monitor|Collect and destroy damaged flowers and bolls|Destroy cotton stalks and residue after the season|Spray only when pest numbers cross the threshold and follow KVK or agriculture university advice')},
+ {c:'cotton',t:'pest',s:['sticky','curl','yellow'],n:L('मावा, तुडतुडे व पांढरी माशी','Aphids, jassids and whitefly'),
+  see:L('पाने खालच्या बाजूस गुंडाळतात, कडा पिवळ्या किंवा लालसर होतात, पानांवर चिकट थर व काळी बुरशी, पानांच्या खाली लहान कीटक.','Leaves curl downward, edges turn yellow or reddish, leaves feel sticky with sooty mould, and tiny insects sit under the leaves.'),
+  doit:L('आठवड्यातून एकदा पाने खालच्या बाजूने तपासा|पिवळे चिकट सापळे लावा|निंबोळी अर्क (५%) फवारा|नत्र खत गरजेपेक्षा जास्त देऊ नका|लेडीबर्डसारखे मित्र कीटक जपा; रासायनिक फवारणी KVK च्या सल्ल्यानेच',
+         'Check the underside of leaves every week|Use yellow sticky traps|Spray neem seed kernel extract (5%)|Do not over-apply nitrogen fertiliser|Protect friendly insects like ladybirds; use chemicals only on KVK advice')},
+ {c:'cotton',t:'disease',s:['wilt','yellow','stem'],n:L('मर रोग','Wilt'),
+  see:L('झाडे अचानक सुकतात, पाने पिवळी पडतात, खोड कापल्यास आत तपकिरी रेषा दिसतात.','Plants dry up suddenly, leaves turn yellow and the cut stem shows brown streaks inside.'),
+  doit:L('पाणी साचू देऊ नका, निचरा चांगला ठेवा|एकाच शेतात सतत कापूस घेऊ नका; फेरपालट करा|रोग सहन करणारे वाण निवडा|रोगट झाडे उपटून नष्ट करा|शेणखतात ट्रायकोडर्मा मिसळून द्या',
+         'Do not let water stand; keep good drainage|Rotate crops; do not grow cotton again and again in one field|Choose tolerant varieties|Uproot and destroy diseased plants|Mix Trichoderma into farmyard manure')},
 
-let mkAll = null, mkMeta = null;
-async function loadMarket(force){
-  if (mkAll && !force){ mkApplyState(); renderMarket(); return; }
-  mkLoading = true; mkErr = ''; renderMarket();
-  try{
-    const r = await fetch('data/prices.json', {cache: 'no-cache'});
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const j = await r.json();
-    if (!j || !Array.isArray(j.rows) || !j.rows.length) throw new Error('empty');
-    const f = j.fields || [], ix = k => f.indexOf(k);
-    mkMeta = j;
-    mkAll = j.rows.map(a => ({state: a[ix('state')], district: a[ix('district')], market: a[ix('market')], commodity: a[ix('commodity')],
-      variety: a[ix('variety')], date: a[ix('date')], min: Number(a[ix('min')]), max: Number(a[ix('max')]), modal: Number(a[ix('modal')])}))
-      .filter(x => isFinite(x.modal) && x.market);
-    const have = new Set(mkAll.map(x => x.state));
-    if (!have.has(mkState)) mkState = (MK_STATES.map(s => s[0]).find(s => have.has(s))) || Array.from(have)[0];
-    mkApplyState();
-  }catch(e){
-    console.warn('Market prices not loaded', e);
-    mkErr = (/404|empty/.test(String(e.message))) ? 'mk_nokey' : 'mk_err'; mkData = null;
-  }
-  mkLoading = false; renderMarket();
+ {c:'soybean',t:'pest',s:['wilt','stem'],n:L('चक्री भुंगा','Girdle beetle'),
+  see:L('खोडावर किंवा फांदीवर दोन गोलाकार चिरा दिसतात आणि त्यावरील भाग सुकतो.','Two ring-like cuts on the stem or branch, and the part above them dries up.'),
+  doit:L('वेळेवर पेरणी करा, उशिरा पेरणी टाळा|शिफारशीत बियाणे प्रमाण वापरा; दाट पेरणी टाळा|सुकलेले भाग तोडून नष्ट करा|नत्र खत जास्त देऊ नका|प्रादुर्भाव जास्त असल्यास KVK ला विचारा',
+         'Sow on time; avoid late sowing|Use the recommended seed rate; avoid very dense sowing|Cut and destroy the dried parts|Do not over-apply nitrogen|If the attack is heavy, ask your KVK')},
+ {c:'soybean',t:'disease',s:['yellow','curl'],n:L('पिवळा मोझॅक (विषाणू)','Yellow mosaic virus'),
+  see:L('पानांवर पिवळे-हिरवे ठिपके (मोझॅक), झाडे खुजी, शेंगा कमी; रोग पांढरी माशी पसरवते.','Yellow and green patches (mosaic) on leaves, stunted plants and few pods; whitefly spreads it.'),
+  doit:L('सुरुवातीला दिसणारी रोगट झाडे उपटून नष्ट करा|पिवळे चिकट सापळे लावा|बांधावरील तण काढा|रोग सहन करणारे वाण वापरा|पांढऱ्या माशीसाठी KVK च्या सल्ल्याने उपाय करा',
+         'Uproot early infected plants|Use yellow sticky traps|Remove weeds from the bunds|Use tolerant varieties|Control whitefly on KVK advice')},
+ {c:'soybean',t:'pest',s:['holes'],n:L('पाने खाणाऱ्या अळ्या','Leaf-eating caterpillars'),
+  see:L('पाने कुरतडलेली किंवा जाळीदार झालेली, पानांवर अळ्या दिसतात.','Leaves chewed or lace-like, with caterpillars visible on them.'),
+  doit:L('सुरुवातीला अंडीपुंज व लहान अळ्या हाताने गोळा करा|शेतात पक्षी थांबे लावा|कामगंध सापळे लावा|निंबोळी अर्क फवारा|रासायनिक फवारणी नुकसान पातळी ओलांडल्यावरच, KVK नुसार',
+         'Hand-pick egg clusters and small caterpillars early|Put up bird perches|Use pheromone traps|Spray neem seed kernel extract|Chemical spray only above the threshold, as per KVK')},
+ {c:'soybean',t:'disease',s:['spots','yellow'],n:L('तांबेरा','Rust'),
+  see:L('पानांच्या खालच्या बाजूला तांबूस-तपकिरी पुटकुळ्या, पाने पिवळी होऊन गळतात.','Reddish-brown pustules under the leaves; leaves turn yellow and fall.'),
+  doit:L('रोग सहन करणारे वाण निवडा|शेत स्वच्छ ठेवा, तण काढा|लक्षणे दिसताच KVK कडून बुरशीनाशकाची शिफारस घ्या|ढगाळ दमट हवामानात दर आठवड्याला निरीक्षण करा',
+         'Choose tolerant varieties|Keep the field clean and weed free|At the first signs, get a fungicide recommendation from KVK|Inspect weekly in cloudy, humid weather')},
+
+ {c:'tur',t:'pest',s:['fruit','holes'],n:L('शेंगा पोखरणारी अळी (हेलिकोव्हर्पा)','Pod borer (Helicoverpa)'),
+  see:L('कळ्या, फुले व शेंगांना छिद्रे, शेंगेत अळी आणि दाणे खाल्लेले.','Holes in buds, flowers and pods, a caterpillar inside the pod and eaten grains.'),
+  doit:L('कामगंध सापळे लावा|पक्षी थांबे लावा|मोठ्या अळ्या हाताने वेचून नष्ट करा|निंबोळी अर्क किंवा एचएनपीव्ही (HaNPV) वापरा|तुरीत ज्वारीसारखे आंतरपीक घ्या',
+         'Install pheromone traps|Put up bird perches|Hand-pick and destroy large caterpillars|Use neem extract or HaNPV|Grow an intercrop such as jowar')},
+ {c:'tur',t:'disease',s:['wilt','yellow','stem'],n:L('मर रोग','Wilt'),
+  see:L('झाडे एकामागून एक सुकतात, पाने पिवळी होतात, खोडात तपकिरी-काळ्या रेषा दिसतात.','Plants dry up one after another, leaves yellow and the stem shows brown-black streaks.'),
+  doit:L('रोग सहन करणारे वाण निवडा|बियाण्यास ट्रायकोडर्माची प्रक्रिया करा|पाणी साचू देऊ नका|ज्वारी किंवा बाजरीसोबत पीक फेरपालट करा|रोगट झाडे उपटून नष्ट करा',
+         'Choose tolerant varieties|Treat seed with Trichoderma|Do not let water stand|Rotate with jowar or bajra|Uproot and destroy diseased plants')},
+ {c:'tur',t:'disease',s:['curl','yellow'],n:L('वांझ रोग (स्टेरिलिटी मोझॅक)','Sterility mosaic'),
+  see:L('झाड झुडपासारखे वाढते, पाने लहान व फिकट हिरवी, फुले व शेंगा येत नाहीत; रोग कोळी (मीट) पसरवतात.','The plant grows bushy with small pale-green leaves and gives no flowers or pods; tiny mites spread it.'),
+  doit:L('रोगट झाडे लगेच उपटून नष्ट करा|रोग सहन करणारे वाण वापरा|बांधावरील स्वयंभू तुरीची झाडे व तण काढा|कोळीसाठी KVK ला विचारा',
+         'Uproot and destroy diseased plants at once|Use tolerant varieties|Remove volunteer tur plants and weeds from the bunds|Ask your KVK about the mite')},
+
+ {c:'gram',t:'pest',s:['fruit','holes'],n:L('घाटे अळी','Pod borer'),
+  see:L('घाट्यांना गोल छिद्रे, घाट्यात अळी, दाणे खाल्लेले; पाने व कळ्याही खाल्लेल्या दिसतात.','Round holes in pods, a caterpillar inside, grains eaten; leaves and buds may also be eaten.'),
+  doit:L('कामगंध सापळे लावा|पक्षी थांबे लावा|अळ्या हाताने वेचून नष्ट करा|निंबोळी अर्क किंवा एचएनपीव्ही (HaNPV) वापरा|रासायनिक फवारणी फक्त नुकसान पातळी ओलांडल्यावर, KVK नुसार',
+         'Install pheromone traps|Put up bird perches|Hand-pick and destroy caterpillars|Use neem extract or HaNPV|Chemical spray only above the threshold, as per KVK')},
+ {c:'gram',t:'disease',s:['wilt','yellow','stem'],n:L('मर व मुळकूज','Wilt and root rot'),
+  see:L('झाडे सुकतात, पाने पिवळी पडतात, मुळे कुजलेली किंवा काळी दिसतात.','Plants dry up, leaves turn yellow and roots look rotten or dark.'),
+  doit:L('रोग सहन करणारे वाण निवडा|बियाण्यास ट्रायकोडर्मा किंवा शिफारशीत औषधाची प्रक्रिया करा|योग्य ओलाव्यात पेरणी करा, पाणी साचू देऊ नका|पीक फेरपालट करा|रोगट झाडे काढून नष्ट करा',
+         'Choose tolerant varieties|Treat seed with Trichoderma or a recommended product|Sow in proper moisture and avoid waterlogging|Rotate crops|Remove and destroy diseased plants')},
+
+ {c:'jowar',t:'pest',s:['tip','wilt'],n:L('खोडमाशी','Shoot fly'),
+  see:L('रोपावस्थेत मधला कोंब सुकतो (डेड हार्ट) आणि ओढल्यास सहज निघतो.','In young plants the central shoot dries (dead heart) and pulls out easily.'),
+  doit:L('वेळेवर पेरणी करा|थोडे जास्त बियाणे वापरून नंतर विरळणी करा|डेड हार्ट असलेली रोपे काढून नष्ट करा|बीजप्रक्रिया KVK च्या सल्ल्याने करा|नत्र खत संतुलित द्या',
+         'Sow on time|Use a slightly higher seed rate and thin later|Remove and destroy plants with dead heart|Treat seed on KVK advice|Give balanced nitrogen')},
+ {c:'jowar',t:'disease',s:['fruit'],n:L('दाण्यांवरील बुरशी (ग्रेन मोल्ड)','Grain mould'),
+  see:L('कणसातील दाणे काळे, गुलाबी किंवा पांढरट होतात; पावसात कणीस दीर्घकाळ ओले राहते.','Grains in the head turn black, pinkish or whitish; the head stays wet for long in rain.'),
+  doit:L('लवकर तयार होणारे, बुरशी सहन करणारे वाण निवडा|कणसे वेळेवर काढा आणि नीट वाळवा|साठवणुकीपूर्वी दाण्यांतील ओलावा कमी करा|दमट हवामानात कणसे जास्त वेळ ओली राहू देऊ नका',
+         'Choose early-maturing, mould-tolerant varieties|Harvest on time and dry the heads well|Dry grain well before storage|Do not let heads stay wet for long in humid weather')},
+
+ {c:'maize',t:'pest',s:['holes','tip'],n:L('लष्करी अळी','Fall armyworm'),
+  see:L('पोंग्यात पानांवर अनियमित छिद्रे व भुशासारखी विष्ठा, पाने कुरतडलेली; अळीच्या पाठीवर उलट Y आकाराची खूण.','Ragged holes in leaves and sawdust-like droppings in the whorl; the caterpillar has an inverted Y mark on its head.'),
+  doit:L('उगवणीपासून आठवड्यातून दोनदा शेत तपासा|अंडीपुंज चिरडा व लहान अळ्या वेचा|कामगंध सापळे लावा|सुरुवातीलाच निंबोळी-आधारित फवारणी करा|रासायनिक फवारणी KVK च्या सल्ल्याने व लेबलनुसार',
+         'Scout the field twice a week from emergence|Crush egg clusters and pick small caterpillars|Install pheromone traps|Spray neem-based products early|Chemical spray only on KVK advice and as per the label')},
+ {c:'maize',t:'disease',s:['spots'],n:L('पानांवरील करपा','Leaf blight'),
+  see:L('पानांवर लांब, सिगारसारखे राखाडी-तपकिरी डाग, खालची पाने आधी करपतात.','Long cigar-shaped grey-brown spots on leaves; the lower leaves dry first.'),
+  doit:L('रोग सहन करणारे संकरित वाण निवडा|पिकाचे अवशेष नष्ट करा|पीक फेरपालट करा|संतुलित खत द्या|गरज असल्यास KVK कडून बुरशीनाशकाचा सल्ला घ्या',
+         'Choose tolerant hybrids|Destroy crop residue|Rotate crops|Give balanced fertiliser|If needed, get fungicide advice from KVK')},
+ {c:'maize',t:'pest',s:['tip','holes','stem'],n:L('खोडकिडा','Stem borer'),
+  see:L('पानांवर लहान छिद्रांच्या रांगा, मधला कोंब सुकतो, खोडात बोगदे व भुसा.','Rows of small holes on leaves, the central shoot dries and the stem has tunnels and frass.'),
+  doit:L('पिकाचे अवशेष नष्ट करा|वेळेवर पेरणी करा|पोंग्यात अळ्या तपासा|मित्र कीटक ट्रायकोग्रामा KVK कडून मिळवा|फवारणी KVK च्या सल्ल्याने',
+         'Destroy crop residue|Sow on time|Check the whorl for caterpillars|Get the friendly wasp Trichogramma from KVK|Spray only on KVK advice')},
+
+ {c:'wheat',t:'disease',s:['spots','yellow'],n:L('तांबेरा','Rust'),
+  see:L('पानांवर व खोडावर नारिंगी-तपकिरी किंवा पिवळ्या पुटकुळ्या; हाताला पावडरसारख्या लागतात.','Orange-brown or yellow pustules on leaves and stems that rub off like powder.'),
+  doit:L('रोग सहन करणारे वाण पेरा|उशिरा पेरणी व जास्त नत्र टाळा|लक्षणे दिसताच KVK ला कळवा|बुरशीनाशक फक्त शिफारशीनुसार वापरा',
+         'Sow tolerant varieties|Avoid late sowing and excess nitrogen|Tell your KVK at the first signs|Use fungicide only as recommended')},
+ {c:'wheat',t:'pest',s:['sticky','yellow','curl'],n:L('मावा','Aphids'),
+  see:L('पाने व कणसांवर लहान हिरवे किंवा काळे कीटक, चिकटपणा, पाने पिवळी.','Small green or black insects on leaves and ears, sticky leaves and yellowing.'),
+  doit:L('लेडीबर्डसारखे मित्र कीटक जपा|पिवळे चिकट सापळे लावा|निंबोळी अर्क फवारा|जास्त नत्र टाळा|संख्या जास्त असल्यास KVK चा सल्ला घ्या',
+         'Protect friendly insects like ladybirds|Use yellow sticky traps|Spray neem seed kernel extract|Avoid excess nitrogen|If numbers are high, ask your KVK')},
+ {c:'wheat',t:'pest',s:['wilt','stem'],n:L('वाळवी','Termites'),
+  see:L('झाडे अचानक सुकतात, मुळे व खोड पोखरलेले, जमिनीत मातीच्या नळ्या दिसतात.','Plants dry suddenly, roots and stem are eaten, and mud tubes show on the soil.'),
+  doit:L('चांगले कुजलेले शेणखत वापरा, कच्चे शेणखत टाळा|शेतातील पिकाचे अवशेष काढा|बीजप्रक्रिया KVK च्या सल्ल्याने करा|वारुळे शोधून नष्ट करा|पाण्याच्या पाळ्या वेळेवर द्या',
+         'Use well-rotted farmyard manure, not raw manure|Remove crop residue from the field|Treat seed on KVK advice|Find and destroy termite mounds|Irrigate on time')},
+
+ {c:'onion',t:'disease',s:['spots'],n:L('जांभळा करपा','Purple blotch'),
+  see:L('पात व पानांवर पांढरट खोलगट डाग, मध्यभागी जांभळसर; पात मोडून पडते.','Whitish sunken spots on leaves with a purple centre; the leaf folds and falls.'),
+  doit:L('पीक फेरपालट करा, कांद्यानंतर कांदा घेऊ नका|पाणी साचू देऊ नका, दाट लागवड टाळा|नत्र संतुलित द्या|लक्षणे दिसताच KVK कडून बुरशीनाशकाची शिफारस घ्या|रोगट पाला काढून नष्ट करा',
+         'Rotate crops; do not grow onion after onion|Avoid waterlogging and dense planting|Give balanced nitrogen|At the first signs, get a fungicide recommendation from KVK|Remove and destroy diseased leaves')},
+ {c:'onion',t:'pest',s:['spots','curl'],n:L('फुलकिडे (थ्रिप्स)','Thrips'),
+  see:L('पानांवर चंदेरी-पांढऱ्या रेषा, पानांची टोके पांढरी, पात वाकडी-तिकडी.','Silvery-white streaks on leaves, whitened tips and twisted leaves.'),
+  doit:L('निळे चिकट सापळे लावा|आच्छादन (मल्चिंग) करा|कोरड्या हवामानात पाण्याचा ताण टाळा|निंबोळी अर्क फवारा|नुकसान पातळीवर KVK नुसार फवारणी करा',
+         'Use blue sticky traps|Use mulch|Avoid water stress in dry weather|Spray neem seed kernel extract|Spray only at the threshold, as per KVK')},
+ {c:'onion',t:'disease',s:['wilt','stem','yellow'],n:L('मुळकूज (बेसल रॉट)','Basal rot'),
+  see:L('पाने पिवळी पडून टोकापासून सुकतात, कांद्याच्या तळाशी पांढरी बुरशी व कूज.','Leaves yellow and dry from the tip; white mould and rot at the base of the bulb.'),
+  doit:L('पीक फेरपालट करा|निचऱ्याची जमीन निवडा|खुरपणीवेळी कांद्याला इजा टाळा|काढणीनंतर कांदे नीट वाळवा (क्युरिंग)|रोगट कांदे साठवणीत ठेवू नका',
+         'Rotate crops|Choose well-drained land|Avoid injuring bulbs during weeding|Cure bulbs well after harvest|Do not store diseased bulbs')},
+ {c:'onion',t:'disease',s:['powder','spots','yellow'],n:L('केवडा (डाउनी मिल्ड्यू)','Downy mildew'),
+  see:L('पात फिकट होते, जांभळसर-राखाडी बुरशी दिसते; थंड, ढगाळ, दमट हवामानात वाढते.','Leaves turn pale with purple-grey mould; it grows in cool, cloudy, humid weather.'),
+  doit:L('दाट लागवड टाळा, हवा खेळती ठेवा|पाणी साचू देऊ नका|रोगट पाला काढून नष्ट करा|अशा हवामानात दर आठवड्याला पाहणी करा|बुरशीनाशकाचा सल्ला KVK कडून घ्या',
+         'Avoid dense planting; keep air moving|Do not let water stand|Remove and destroy diseased leaves|Inspect weekly in such weather|Get fungicide advice from KVK')},
+
+ {c:'tomato',t:'disease',s:['curl','yellow'],n:L('पाने गुंडाळणारा विषाणू (लीफ कर्ल)','Leaf curl virus'),
+  see:L('पाने वर गुंडाळतात, पिवळी व आखूड होतात, झाड खुजे, फळे कमी; पांढरी माशी पसरवते.','Leaves curl upward, turn yellow and small, plants stay stunted with few fruits; whitefly spreads it.'),
+  doit:L('पिवळे चिकट सापळे लावा|रोगट झाडे लगेच उपटून नष्ट करा|रोगप्रतिकारक संकरित वाण निवडा|रोपवाटिका जाळीखाली करा|बांधावरील तण काढा',
+         'Use yellow sticky traps|Uproot diseased plants at once|Choose tolerant hybrids|Raise seedlings under a net|Remove weeds from the bunds')},
+ {c:'tomato',t:'disease',s:['spots'],n:L('लवकर येणारा करपा (अर्ली ब्लाइट)','Early blight'),
+  see:L('खालच्या पानांवर वर्तुळाकार रिंग असलेले तपकिरी डाग; पाने पिवळी होऊन गळतात.','Brown spots with ring patterns on lower leaves; leaves turn yellow and fall.'),
+  doit:L('पीक फेरपालट करा|आच्छादन करा; झाडे काठीने बांधा, पाने जमिनीला लागू देऊ नका|खालची रोगट पाने काढा|संतुलित खत द्या|लक्षणे दिसताच KVK चा सल्ला घ्या',
+         'Rotate crops|Use mulch; stake the plants so leaves do not touch the soil|Remove diseased lower leaves|Give balanced fertiliser|Ask your KVK at the first signs')},
+ {c:'tomato',t:'pest',s:['fruit','holes'],n:L('फळ पोखरणारी अळी','Fruit borer'),
+  see:L('फळांना गोल छिद्रे, आत अळी व फळे सडतात.','Round holes in fruits with a caterpillar inside and fruits rotting.'),
+  doit:L('कामगंध सापळे लावा|बांधावर झेंडू लावा (सापळा पीक)|अळ्या हाताने वेचा व खराब फळे नष्ट करा|एचएनपीव्ही किंवा निंबोळी अर्क वापरा|फवारणी KVK च्या सल्ल्याने',
+         'Install pheromone traps|Plant marigold on the borders as a trap crop|Hand-pick caterpillars and destroy damaged fruit|Use HaNPV or neem extract|Spray only on KVK advice')},
+ {c:'tomato',t:'disease',s:['spots','wilt'],n:L('उशिरा येणारा करपा (लेट ब्लाइट)','Late blight'),
+  see:L('थंड, ढगाळ, दमट हवामानात पानांवर पाणथळ काळसर डाग, फळांवर तपकिरी डाग; झपाट्याने पसरतो.','In cool, cloudy, humid weather: water-soaked dark spots on leaves and brown patches on fruit; it spreads fast.'),
+  doit:L('पाणी साचू देऊ नका; शक्य असल्यास ठिबक वापरा|रोगट पाने व फळे नष्ट करा|दाट लागवड टाळा, हवा खेळती ठेवा|अशा हवामानात तातडीने KVK चा सल्ला घ्या|शिफारशीत बुरशीनाशक लेबलनुसार वापरा',
+         'Do not let water stand; use drip if possible|Destroy diseased leaves and fruit|Avoid dense planting; keep air moving|Ask your KVK urgently in such weather|Use the recommended fungicide as per the label')},
+
+ {c:'pomegranate',t:'disease',s:['spots','fruit'],n:L('तेल्या (बॅक्टेरियल ब्लाइट)','Bacterial blight (telya)'),
+  see:L('पाने, फांद्या व फळांवर तेलकट, काळसर डाग; फळे तडकतात.','Oily, dark spots on leaves, branches and fruits; fruits crack.'),
+  doit:L('बागेची स्वच्छता ठेवा; रोगट फांद्या व फळे कापून जाळा|रोगमुक्त रोपे वापरा|कात्री व अवजारे निर्जंतुक करा|पावसाळ्यात पाणी उडवणारे सिंचन टाळा|तांबेयुक्त फवारणी KVK किंवा फळबाग तज्ज्ञांच्या सल्ल्यानुसार',
+         'Keep the orchard clean; cut and burn diseased branches and fruits|Use disease-free plants|Disinfect secateurs and tools|Avoid water-splashing irrigation in the rains|Copper sprays only on KVK or horticulture expert advice')},
+ {c:'pomegranate',t:'pest',s:['fruit','holes'],n:L('फळे पोखरणारी अळी (अनार फुलपाखरू)','Fruit borer (anar butterfly)'),
+  see:L('फळांना लहान छिद्रे, आतून सडलेली फळे, फळाच्या देठाजवळ अळी.','Small holes in fruits, rotten inside, with a caterpillar near the stalk.'),
+  doit:L('फळांना कागदी पिशव्या (बॅगिंग) लावा|खराब व गळलेली फळे गोळा करून नष्ट करा|बागेत तण स्वच्छ ठेवा|सापळे वापरा|फवारणी KVK च्या सल्ल्याने',
+         'Cover fruits with paper bags (bagging)|Collect and destroy damaged and fallen fruits|Keep the orchard free of weeds|Use traps|Spray only on KVK advice')},
+ {c:'pomegranate',t:'disease',s:['wilt','stem','yellow'],n:L('मर रोग','Wilt'),
+  see:L('झाडाची पाने पिवळी पडून फांद्या सुकतात, मुळे व खोडाचा बुंधा काळसर.','Leaves yellow and branches dry; roots and the base of the trunk look dark.'),
+  doit:L('निचऱ्याची जमीन निवडा, पाणी साचू देऊ नका|मुळांना इजा टाळा|ट्रायकोडर्मा वापरा|रोगट झाड काढून खड्ड्याचे निर्जंतुकीकरण करा|निरोगी रोपे वापरा',
+         'Choose well-drained land; do not let water stand|Avoid injuring roots|Use Trichoderma|Remove the diseased tree and disinfect the pit|Use healthy planting material')}
+];
+
+let pgCrop = 'cotton';
+const pgSel = new Set();
+const pgSteps = o => String(tr(o)).split('|');
+function pgPick(c){ pgCrop = c; pgSel.clear(); renderPests(); }
+function pgTog(s){ if (pgSel.has(s)) pgSel.delete(s); else pgSel.add(s); renderPests(); }
+function pgClear(){ pgSel.clear(); renderPests(); }
+function renderPests(){
+  const cropsEl = $('pgCrops'); if (!cropsEl) return;
+  cropsEl.innerHTML = PG_CROPS.map(c => `<button class="choice-btn ${pgCrop === c[0] ? 'on' : ''}" onclick="pgPick('${c[0]}')">${c[1]} ${esc(tr(c[2]))}</button>`).join('');
+  const issues = PG_ISSUES.filter(i => i.c === pgCrop);
+  const present = new Set(issues.flatMap(i => i.s));
+  $('pgSyms').innerHTML = PG_SYM.filter(s => present.has(s[0])).map(s => `<button class="sym-btn ${pgSel.has(s[0]) ? 'on' : ''}" onclick="pgTog('${s[0]}')">${s[1]} ${t('sym_' + s[0])}</button>`).join('');
+  const sel = Array.from(pgSel);
+  let list, head;
+  if (sel.length){
+    list = issues.map(i => ({i, score: i.s.filter(x => pgSel.has(x)).length})).filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score || a.i.s.length - b.i.s.length);
+    head = t('pg_best');
+  } else { list = issues.map(i => ({i, score: 0})); head = t('pg_all'); }
+  if (!list.length){ $('pgResults').innerHTML = `<div class="pg-none">${t('pg_none')}</div>`; return; }
+  $('pgResults').innerHTML = `<div class="pg-head">${head}</div>` + list.map(x => {
+    const i = x.i, kind = i.t === 'pest' ? 'pest' : 'dis';
+    return `<div class="pg-card ${kind}"><span class="pg-badge">${i.t === 'pest' ? '🐛 ' + t('pg_pest') : '🦠 ' + t('pg_dis')}</span>
+      <h3>${esc(tr(i.n))}</h3>${sel.length ? `<div class="pg-match">${t('pg_match')}: ${num(x.score)} ${t('pg_of')} ${num(sel.length)}</div>` : ''}
+      <div class="lab">${t('pg_look')}</div><p>${esc(tr(i.see))}</p>
+      <div class="lab">${t('pg_do')}</div><ul>${pgSteps(i.doit).map(z => `<li>${esc(z)}</li>`).join('')}</ul></div>`;
+  }).join('');
 }
-function mkApplyState(){ mkData = mkAll ? mkAll.filter(x => x.state === mkState) : null; }
-function mkFmtDate(d){ return /^\d{4}-\d{2}-\d{2}$/.test(String(d)) ? new Date(d + 'T00:00:00').toLocaleDateString(wxLocale(), {day: 'numeric', month: 'short'}) : String(d || ''); }
-function mkBase(){      // rows for the chosen crop, before district / market-name filters
-  if (!mkData) return [];
-  if (mkExact) return mkData.filter(r => r.commodity === mkExact);
-  const chip = MK_CHIPS.find(c => c[0] === mkChip);
-  return chip ? mkData.filter(r => r.commodity.toLowerCase().includes(chip[4])) : [];
-}
-function renderMarket(){
-  const st = $('mkState'); if (!st) return;
-  const haveSt = mkAll ? new Set(mkAll.map(x => x.state)) : null;
-  st.innerHTML = MK_STATES.filter(s => !haveSt || haveSt.has(s[0])).map(s => `<option value="${s[0]}" ${s[0] === mkState ? 'selected' : ''}>${esc(lang === 'mr' ? s[1] : s[0])}</option>`).join('');
-  $('mkChips').innerHTML = MK_CHIPS.map(c => `<button class="mk-chip ${(!mkExact && mkChip === c[0]) ? 'on' : ''}" onclick="mkPickChip('${c[0]}')">${c[1]} ${esc(lang === 'mr' ? c[2] : c[3])}</button>`).join('');
-  const names = mkData ? Array.from(new Set(mkData.map(r => r.commodity))).sort() : [];
-  $('mkOther').innerHTML = `<option value="">${t('mk_other')}</option>` + names.map(n => `<option value="${esc(n)}" ${n === mkExact ? 'selected' : ''}>${esc(n)}</option>`).join('');
-  const base = mkBase();
-  const districts = Array.from(new Set(base.map(r => r.district))).filter(Boolean).sort();
-  if (mkDistrict && !districts.includes(mkDistrict)) mkDistrict = '';
-  $('mkDistrict').innerHTML = `<option value="">${t('mk_all_districts')}</option>` + districts.map(d => `<option value="${esc(d)}" ${d === mkDistrict ? 'selected' : ''}>${esc(d)}</option>`).join('');
-  const sum = $('mkSummary'), tab = $('mkTableWrap');
-  const msg = h => { sum.innerHTML = `<div class="wx-msg">${h}</div>`; tab.innerHTML = ''; };
-  if (mkLoading) return msg(t('mk_loading'));
-  if (mkErr === 'mk_nokey') return msg(t('mk_nokey'));
-  if (mkErr) return msg(`${t(mkErr)} <button class="btn btn-green btn-sm" onclick="loadMarket(true)">${t('wx_retry')}</button>`);
-  if (!mkData){ sum.innerHTML = ''; tab.innerHTML = ''; return; }
-  if (!mkExact && !mkChip) return msg(t('mk_pick'));
-  let rows = base.filter(r => (!mkDistrict || r.district === mkDistrict) && (!mkSearch || r.market.toLowerCase().includes(mkSearch)));
-  if (!rows.length) return msg(t('mk_none'));
-  rows = rows.slice().sort((a, b) => b.modal - a.modal);
-  const avg = rows.reduce((a, r) => a + r.modal, 0) / rows.length, hi = rows[0], lo = rows[rows.length - 1];
-  const upd = mkMeta && mkMeta.updated, daysOld = upd ? Math.floor((Date.now() - new Date(upd + 'T00:00:00').getTime()) / 864e5) : 0;
-  const updTxt = upd ? ' · ' + t('mk_updated') + ' ' + new Date(upd + 'T00:00:00').toLocaleDateString(wxLocale(), {day: 'numeric', month: 'long', year: 'numeric'}) + (daysOld > 3 ? ' · ' + t('mk_stale') : '') : '';
-  sum.innerHTML = `<div class="mk-unit">${t('mk_unit')}${updTxt}</div><div class="mk-sum">
-    <div class="mk-tile"><small>${t('mk_markets')}</small><b>${num(rows.length)}</b></div>
-    <div class="mk-tile"><small>${t('mk_avg')}</small><b>${money(Math.round(avg))}</b></div>
-    <div class="mk-tile hi"><small>${t('mk_high')}</small><b>${money(hi.modal)}</b><span>${esc(hi.market)}${hi.district ? ', ' + esc(hi.district) : ''}</span></div>
-    <div class="mk-tile"><small>${t('mk_low')}</small><b>${money(lo.modal)}</b><span>${esc(lo.market)}${lo.district ? ', ' + esc(lo.district) : ''}</span></div></div>`;
-  const shown = rows.slice(0, 150);
-  tab.innerHTML = `<table class="mk-table"><thead><tr><th>${t('mk_th_market')}</th><th>${t('mk_th_district')}</th><th>${t('mk_th_variety')}</th>
-    <th class="n">${t('mk_th_min')}</th><th class="n">${t('mk_th_max')}</th><th class="n">${t('mk_th_modal')}</th><th>${t('mk_th_date')}</th></tr></thead><tbody>` +
-    shown.map(r => `<tr><td>${esc(r.market)}</td><td>${esc(r.district)}</td><td>${esc(r.variety)}</td><td class="n">${isFinite(r.min) ? money(r.min) : '-'}</td>
-      <td class="n">${isFinite(r.max) ? money(r.max) : '-'}</td><td class="n modal">${money(r.modal)}</td><td>${esc(mkFmtDate(r.date))}</td></tr>`).join('') +
-    `</tbody></table>` + (rows.length > shown.length ? `<p class="wx-note" style="padding:0 12px">${t('mk_trunc')}</p>` : '');
-}
-function mkPickState(v){ mkState = v; mkDistrict = ''; mkExact = ''; mkSearch = ''; const b = $('mkSearchBox'); if (b) b.value = ''; mkApplyState(); renderMarket(); }
-function mkPickChip(k){ mkChip = k; mkExact = ''; mkDistrict = ''; renderMarket(); }
-function mkPickOther(v){ mkExact = v; if (v) mkChip = ''; else mkChip = 'onion'; mkDistrict = ''; renderMarket(); }
-function mkPickDistrict(v){ mkDistrict = v; renderMarket(); }
-function mkSearchInput(v){ mkSearch = String(v).trim().toLowerCase(); renderMarket(); }
-function initMarket(){ if (!mkAll && !mkLoading && !mkErr) loadMarket(); else renderMarket(); }
+
+/* =====================================================================
+   WHATSAPP SHARE + INSTALL AS APP
+   ===================================================================== */
+const siteUrl = () => location.href.split('#')[0];
+function waShare(text){ window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener'); }
+function shareSite(){ waShare(t('share_text') + '\n' + siteUrl()); }
+function shareScheme(idx){ const s = SCHEMES[idx]; if (s) waShare('*' + tr(s.title) + '*\n' + tr(s.desc) + '\n' + tr(L('पात्रता: ', 'Eligibility: ')) + tr(s.elig) + '\n' + s.link + '\n\nAgroguide: ' + siteUrl()); }
+
+let installEvt = null;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; const b = $('installBtn'); if (b) b.classList.remove('hidden'); });
+window.addEventListener('appinstalled', () => { installEvt = null; const b = $('installBtn'); if (b) b.classList.add('hidden'); });
+function installApp(){ if (!installEvt) return; installEvt.prompt(); installEvt.userChoice.finally(() => { installEvt = null; $('installBtn').classList.add('hidden'); }); }
+(function pwaSetup(){
+  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent), standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if (ios && !standalone) window.addEventListener('DOMContentLoaded', () => { const h = $('iosHint'); if (h) h.classList.remove('hidden'); });
+})();
 
 /* =====================================================================
    INIT
@@ -1708,13 +1669,10 @@ window.addEventListener('scroll', () => { $('toTop').style.display = window.scro
 <script type="module">
 /* ===== 1) PASTE YOUR FIREBASE SETTINGS HERE (Firebase console > Project settings > Your apps > Web app) ===== */
 const firebaseConfig = {
-  apiKey: "AIzaSyAaqUh8H9b4DyCnS_FKYoOUPUhQXlW5hmk",
-  authDomain: "agroguide-8b810.firebaseapp.com",
-  projectId: "agroguide-8b810",
-  storageBucket: "agroguide-8b810.firebasestorage.app",
-  messagingSenderId: "939262307227",
-  appId: "1:939262307227:web:ff18bff0ee096c5d3bcf3e",
-  measurementId: "G-E7D2R4KSN5"
+  apiKey: "PASTE_API_KEY_HERE",
+  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
+  projectId: "PASTE_PROJECT_ID",
+  appId: "PASTE_APP_ID_HERE"
 };
 /* =============================================================================================================== */
 const CDN = "https://www.gstatic.com/firebasejs/10.14.1/";

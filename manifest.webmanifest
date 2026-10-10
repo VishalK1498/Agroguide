@@ -1,0 +1,15 @@
+{
+  "name": "Agroguide - बळीराजाचा सोबती",
+  "short_name": "Agroguide",
+  "description": "Government schemes, crop guidance and pest and disease help for farmers.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f2f1b",
+  "theme_color": "#1f5130",
+  "lang": "mr",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
