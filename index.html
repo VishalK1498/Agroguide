@@ -10,7 +10,7 @@
 <title>Agroguide - बळीराजाचा सोबती</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;800&family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;800&family=Tiro+Devanagari+Marathi&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --green:#1f5130; --green-d:#0f2f1b; --green-m:#2a6b40; --leaf:#3c8a4f; --leaf-l:#dcebd9;
@@ -31,6 +31,7 @@ button{font-family:inherit}
 ::selection{background:var(--turmeric);color:var(--green-d)}
 :focus-visible{outline:3px solid var(--turmeric);outline-offset:3px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
 
 /* ---------- NAV ---------- */
 header.top{background:rgba(15,47,27,.9);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
@@ -64,20 +65,20 @@ nav.links a.active{background:linear-gradient(135deg,#ffd45c,#f2a900);color:var(
 @media (max-width:1180px){
   .menu-toggle{display:block}
   nav.links{display:none;position:absolute;left:0;right:0;top:68px;background:rgba(15,47,27,.97);flex-direction:column;align-items:stretch;padding:14px 22px 20px;margin:0;border-bottom:3px solid var(--turmeric);box-shadow:0 18px 30px rgba(0,0,0,.35)}
-  nav.links.open{display:flex;animation:drop .25s}
+  nav.links.open{display:flex;}
   nav.links a{padding:13px 16px}
   .nav-row{flex-wrap:nowrap}
   .nav-tools{margin-left:0}
 }
-@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
 @media (max-width:520px){ .brand small{display:none} .nav-tools .btn{padding:7px 13px;font-size:.85rem} .brand{font-size:1.15rem} }
 @media (max-width:440px){ .brand>span:last-child{display:none} .nav-row{gap:8px} .lang button{padding:5px 10px} .nav-tools{gap:6px} }
 @media (max-width:440px){ .brand>span:last-child{display:none} .nav-row{gap:8px} .lang button{padding:5px 10px} .nav-tools{gap:6px} }
 
 /* ---------- PAGES ---------- */
 .page{display:none}
-.page.active{display:block;animation:fade .45s ease}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.page.active{display:block;}
+
 .pad{padding:52px 0 24px}
 .page-title{text-align:center;color:var(--green);font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;margin-bottom:8px}
 .page-title::after,.sec-head h2::after{content:"";display:block;width:74px;height:5px;border-radius:6px;background:linear-gradient(90deg,var(--turmeric),var(--leaf));margin:12px auto 0}
@@ -221,7 +222,7 @@ section.block.alt{background:linear-gradient(180deg,#fff 0%,#f6faf4 100%);border
 .card-header{background:linear-gradient(135deg,#dcebd9,#eef7ec);padding:18px 20px;cursor:pointer;font-weight:700;font-size:1.12rem;color:var(--green-d);display:flex;justify-content:space-between;align-items:center;transition:background .2s}
 .card-header:hover{background:linear-gradient(135deg,#cfe6cc,#e4f3e1)}
 .card-body{padding:18px;display:none;border-top:1px solid #eee}
-.card-body.open{display:block;animation:fade .3s}
+.card-body.open{display:block;}
 .detail-item{margin-bottom:12px;padding:14px 16px;border-radius:12px;background:#f8fbf6;border-left:6px solid var(--leaf);transition:transform .2s,box-shadow .2s}
 .detail-item:hover{transform:translateX(4px);box-shadow:var(--shadow-sm)}
 .detail-label{color:#c2410c;font-weight:700;display:block;margin-bottom:3px}
@@ -272,14 +273,14 @@ section.block.alt{background:linear-gradient(180deg,#fff 0%,#f6faf4 100%);border
 .calc-box .line{display:flex;gap:12px;flex-wrap:wrap}
 .calc-box input{flex:1;min-width:140px;padding:13px;border-radius:12px;border:2px solid #e8dca0;font-size:1rem;background:#fff}
 .calc-box input:focus{outline:none;border-color:var(--turmeric);box-shadow:0 0 0 4px rgba(242,169,0,.2)}
-.res-card{background:#fff;padding:16px 18px;border-radius:14px;border-left:6px solid var(--leaf);box-shadow:var(--shadow);margin-top:16px;animation:fade .35s}
+.res-card{background:#fff;padding:16px 18px;border-radius:14px;border-left:6px solid var(--leaf);box-shadow:var(--shadow);margin-top:16px;}
 ul{padding-left:22px}
 li{margin-bottom:4px}
 
 /* ---------- FOOTER / MISC ---------- */
 footer{position:relative;color:#cfe3cf;margin-top:70px;padding:56px 0 24px;border-top:5px solid var(--turmeric);
   background:radial-gradient(circle at 90% 0,rgba(242,169,0,.14),transparent 40%),linear-gradient(180deg,#143a21,#0b2314)}
-.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px}
 @media (max-width:720px){.foot-grid{grid-template-columns:1fr}}
 footer h4{color:#fff;margin-bottom:14px;font-size:1.1rem}
 footer a{display:block;color:#cfe3cf;text-decoration:none;padding:5px 0;cursor:pointer;transition:.2s}
@@ -342,15 +343,111 @@ footer a:hover{color:var(--turmeric-l);transform:translateX(5px)}
 .doc-item.hl small{display:block;color:var(--muted);font-weight:400;font-size:.82rem}
 .doc-item.hl em{font-style:normal;font-weight:800;color:var(--green);white-space:nowrap}
 .doc-item.hl::after{content:"📞"}
-.share-btn{margin-top:10px;border:0;border-radius:12px;padding:10px;cursor:pointer;font-weight:700;color:#fff;background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 6px 14px rgba(18,140,126,.3);transition:.2s;width:100%;font-size:.95rem}
-.share-btn:hover{filter:brightness(1.07);transform:translateY(-2px)}
 footer a.hidden{display:none}
 
-/* scroll-reveal (only active when JS adds the "js" class) */
-.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.js .reveal.in{opacity:1;transform:none}
 
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
+/* =====================================================================
+   DESIGN V3 - richer look (illustration, waves, banners, colour accents)
+   ===================================================================== */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(620px 420px at 6% 10%,rgba(242,169,0,.10),transparent 70%),radial-gradient(720px 520px at 96% 42%,rgba(60,138,79,.13),transparent 70%),radial-gradient(640px 420px at 32% 100%,rgba(28,106,168,.07),transparent 70%)}
+h1,h2,h3,h4,.brand,.btn,.stat b,.page-title,.tab-btn,.choice-btn,.sym-btn,.submit-btn,.special-btn,.step-label{font-family:'Baloo 2','Mukta','Noto Sans Devanagari',system-ui,sans-serif}
+.hero h1,.cta h2{font-family:'Tiro Devanagari Marathi','Mukta',serif}
+h2,h3,h4{line-height:1.25}
+html{scrollbar-width:thin;scrollbar-color:#3c8a4f #e8f0e5}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background:#e8f0e5}::-webkit-scrollbar-thumb{background:linear-gradient(#3c8a4f,#1f5130);border-radius:10px}
+
+
+
+/* buttons: shine on hover */
+
+
+
+
+/* ---------- hero ---------- */
+
+
+.hero-art{max-width:540px}
+.hero-art::before{content:"";position:absolute;inset:-18px -18px 18px 18px;width:auto;height:auto;border:3px dashed rgba(242,169,0,.65);border-radius:28px;transform:rotate(-2deg);background:none;z-index:0;pointer-events:none}
+.farm-card{position:relative;z-index:1;border-radius:34px;overflow:hidden;line-height:0;box-shadow:0 34px 64px rgba(0,0,0,.42),0 0 0 6px rgba(255,255,255,.2);}
+
+.farm-svg{display:block;width:100%;height:auto;filter:none}
+.sun{transform-box:fill-box;transform-origin:center;}
+.cloud{}
+.cloud.c2{}
+.chip{position:absolute;z-index:2;display:flex;gap:7px;align-items:center;padding:9px 17px;border-radius:40px;font-weight:700;color:var(--green-d);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 14px 28px rgba(0,0,0,.28);white-space:nowrap}
+.chip.c1{left:-16px;top:16%}.chip.c2{right:-12px;top:48%;}.chip.c3{left:7%;bottom:5%;}
+
+@media (max-width:860px){.chip{padding:7px 13px;font-size:.88rem}.chip.c1{left:0}.chip.c2{right:0}}
+/* ---------- stats ---------- */
+.stat{display:flex;flex-direction:column;align-items:center}
+.stat::after{order:-1;display:grid;place-items:center;width:48px;height:48px;border-radius:15px;margin-bottom:8px;font-size:1.5rem;background:linear-gradient(135deg,#eaf6ea,#cfe8d3);box-shadow:inset 0 0 0 1px rgba(60,138,79,.18)}
+.stat:nth-child(1)::after{content:"📜"}.stat:nth-child(2)::after{content:"🌱"}.stat:nth-child(3)::after{content:"🚜"}.stat:nth-child(4)::after{content:"🌐"}
+
+/* ---------- feature cards: one colour each ---------- */
+.feature{--fc:#2e7d32}
+.feature:nth-child(1){--fc:#2e7d32}.feature:nth-child(2){--fc:#7cb342}.feature:nth-child(3){--fc:#1976d2}.feature:nth-child(4){--fc:#00897b}
+.feature:nth-child(5){--fc:#ef6c00}.feature:nth-child(6){--fc:#f9a825}.feature:nth-child(7){--fc:#8e24aa}.feature:nth-child(8){--fc:#546e7a}
+.feature::before{background:var(--fc)}
+.feature .ic{background:linear-gradient(135deg,color-mix(in srgb,var(--fc) 20%,#fff),color-mix(in srgb,var(--fc) 38%,#fff));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--fc) 30%,transparent)}
+.feature:hover{box-shadow:0 20px 42px color-mix(in srgb,var(--fc) 28%,transparent);border-color:color-mix(in srgb,var(--fc) 45%,#fff)}
+.feature::after{color:var(--fc)}
+
+/* ---------- steps ---------- */
+.step{overflow:hidden}
+.step::after{content:counter(s);position:absolute;right:14px;bottom:-22px;font-family:'Baloo 2',sans-serif;font-size:6.5rem;font-weight:800;line-height:1;color:var(--green);opacity:.07;pointer-events:none}
+
+/* ---------- scheme cards ---------- */
+.content-card{overflow:hidden}
+.content-card::after{content:"";position:absolute;right:-34px;top:-34px;width:120px;height:120px;border-radius:50%;background:color-mix(in srgb,var(--c,#2e7d32) 13%,transparent);pointer-events:none}
+
+/* ---------- wave dividers ---------- */
+section.block.alt{position:relative;border:0}
+section.block.alt::before,section.block.alt::after{content:"";position:absolute;left:0;right:0;height:60px;background-size:100% 100%;background-repeat:no-repeat;pointer-events:none}
+section.block.alt::before{top:-59px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0 60V28C180 4 360 0 540 18s360 38 540 22 270-26 360-14V60Z'/%3E%3C/svg%3E")}
+section.block.alt::after{bottom:-59px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath fill='%23f6faf4' d='M0 0H1440V32C1260 56 1080 60 900 42S540 4 360 20 90 48 0 36Z'/%3E%3C/svg%3E")}
+section.block{padding:84px 0}
+
+/* ---------- page banners (added by script) ---------- */
+.banner{position:relative;overflow:hidden;color:#fff;padding:50px 0 58px;border-radius:0 0 44px 44px/0 0 30px 30px;
+  background:radial-gradient(circle at 88% 15%,rgba(242,169,0,.38),transparent 46%),radial-gradient(circle at 5% 100%,rgba(78,170,100,.45),transparent 50%),linear-gradient(135deg,#0f2f1b,#1f5130 58%,#2c6a3e);box-shadow:var(--shadow)}
+.banner::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1.6px,transparent 1.6px);background-size:26px 26px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 90%);mask-image:linear-gradient(180deg,#000,transparent 90%)}
+.banner::after{content:attr(data-emoji);position:absolute;right:6%;top:50%;transform:translateY(-50%) rotate(-10deg);font-size:9rem;opacity:.16;pointer-events:none}
+.banner .wrap{position:relative;z-index:1}
+.banner .page-title{color:#fff;margin:0;text-shadow:0 4px 18px rgba(0,0,0,.3)}
+.banner .page-sub{color:#dcebdc;margin:14px auto 0}
+.after-banner{padding-top:34px}
+@media (max-width:640px){.banner{padding:38px 0 46px}.banner::after{font-size:6rem}}
+
+/* ---------- calls to action / footer ---------- */
+.cta{overflow:hidden}
+.cta::after{content:"🌾";position:absolute;right:26px;bottom:-18px;font-size:8rem;opacity:.14;transform:rotate(-12deg)}
+footer{border-top:0;margin-top:96px;padding-top:62px}
+footer::before{content:"";position:absolute;left:0;right:0;top:-59px;height:60px;background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath fill='%23143a21' d='M0 60V30C240 6 480 0 720 18S1200 52 1440 24V60Z'/%3E%3C/svg%3E")}
+footer .wa-btn{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:11px 20px;border-radius:40px;color:#fff;font-weight:700;background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 10px 22px rgba(18,140,126,.4);transition:transform .2s,filter .2s}
+footer .wa-btn:hover{color:#fff;transform:translateY(-3px);filter:brightness(1.08)}
+
+.drone-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s;border-radius:34px}
+.drone-img.ok{opacity:1}
+.drone{animation:droneHover 3.2s ease-in-out infinite}
+@keyframes droneHover{50%{transform:translateY(-9px)}}
+.rotor{transform-box:fill-box;transform-origin:center;animation:rotorFlick .09s linear infinite}
+@keyframes rotorFlick{0%{transform:scaleX(1)}50%{transform:scaleX(.88)}100%{transform:scaleX(1)}}
+.spray{animation:sprayPulse 1.1s ease-in-out infinite}
+@keyframes sprayPulse{50%{opacity:.55}}
+.drop{animation:dropFall 1.05s linear infinite}
+@keyframes dropFall{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(86px);opacity:0}}
+/* scroll-reveal (only active when JS adds the "js" class) */
+
+
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- calm mode: no movement, only colour and shadow changes ---------- */
+.btn:hover,.feature:hover,.content-card:hover,.step:hover,.tech-card:hover,.tab-btn:hover,.choice-btn:hover,.sym-btn:hover,.pg-card:hover,.exh:hover,.doc-item:hover,
+.submit-btn:hover,.special-btn:hover,.apply-link:hover,.web-btn:hover,.detail-item:hover,.back-btn:hover,#toTop:hover,.wx-day:hover,footer a:hover,.faq details:hover{transform:none!important}
+.feature:hover .ic,.faq details[open] summary::after{transform:none!important}
 </style>
 </head>
 <body>
@@ -396,7 +493,7 @@ footer a.hidden{display:none}
           <button class="btn btn-line" id="heroAuthBtn" onclick="showPage('account','signup')" data-i18n="hero_cta2"></button>
         </div>
       </div>
-      <div class="hero-art">
+     <div class="hero-art">
         <div class="hero-photo" id="heroPhoto">
           <img src="https://www1.djicdn.com/cms/uploads/fd7e1258d4e8b9fb2330f68b92170422.gif" alt="Agri drone" onerror="document.getElementById('heroPhoto').style.display='none';document.getElementById('heroSvg').style.display='block'">
         </div>
@@ -409,7 +506,6 @@ footer a.hidden{display:none}
           </g>
         </svg>
       </div>
-    </div>
   </section>
 
   <div class="stats"><div class="wrap" id="statsRow"></div></div>
@@ -718,10 +814,10 @@ footer a.hidden{display:none}
       <div><h4 data-i18n="foot_acc"></h4>
         <a onclick="showPage('account','login')" data-i18n="login"></a>
         <a onclick="showPage('account','signup')" data-i18n="signup"></a>
-        <a onclick="showPage('advice')" data-i18n="nav_advice"></a>
+        <a onclick="showPage('advice')" data-i18n="nav_advice"></a></div>
+      <div><h4 data-i18n="foot_more"></h4>
         <a onclick="shareSite()" data-i18n="share_site"></a>
-        <a id="installBtn" class="hidden" onclick="installApp()" data-i18n="pwa_install"></a>
-        <a id="iosHint" class="hidden" data-i18n="pwa_ios" style="font-size:.85rem;color:#a8c4a8"></a></div>
+        <a id="installBtn" onclick="installApp()" data-i18n="pwa_install"></a></div>
     </div>
     <div class="copy">&copy; 2026 Agroguide | <span data-i18n="foot_copy"></span></div>
   </div>
@@ -865,9 +961,12 @@ const T = {
  hl_pmfby:["पीक विमा (PMFBY) हेल्पलाइन","Crop insurance (PMFBY) helpline"], hl_pmfby_d:["विमा तक्रार व माहिती","Insurance claims and information"],
  hl_enam:["e-NAM हेल्पडेस्क","e-NAM help desk"], hl_enam_d:["e-NAM नोंदणी व मदत","e-NAM registration and help"],
  hl_note:["क्रमांक सरकारी स्रोतांनुसार आहेत; वेळा बदलू शकतात. कॉल लागला नाही तर अधिकृत पोर्टल तपासा.","Numbers are from government sources; hours can change. If a call does not connect, check the official portal."],
- share_wa:["WhatsApp वर शेअर करा","Share on WhatsApp"], share_site:["साईट WhatsApp वर शेअर करा","Share this site on WhatsApp"],
+ pwa_install:["अ‍ॅप म्हणून इंस्टॉल करा","Install as an app"], pwa_ios:["iPhone वर: Share → Add to Home Screen","On iPhone: Share, then Add to Home Screen"],
+ share_site:["साईट WhatsApp वर शेअर करा","Share this site on WhatsApp"],
  share_text:["Agroguide: शेतकऱ्यांसाठी सरकारी योजना, पीक मार्गदर्शन आणि कीड-रोग माहिती.","Agroguide: government schemes, crop guidance and pest and disease help for farmers."],
- pwa_install:["📲 अ‍ॅप म्हणून इंस्टॉल करा","📲 Install as an app"], pwa_ios:["iPhone वर: Share → Add to Home Screen","On iPhone: Share, then Add to Home Screen"],
+ pwa_howto:["ब्राउझर मेनू (⋮) उघडा आणि 'Install app' किंवा 'Add to Home screen' निवडा.","Open the browser menu (three dots) and choose Install app or Add to Home screen."],
+ pwa_howto_ios:["iPhone वर: Share बटण दाबा आणि 'Add to Home Screen' निवडा.","On iPhone: tap the Share button, then choose Add to Home Screen."],
+ foot_more:["अधिक","More"],
  ok_signup:["खाते यशस्वीरित्या तयार झाले!","Account created successfully!"], ok_login:["स्वागत आहे!","Welcome back!"], ok_logout:["तुम्ही लॉगआउट झालात.","You have been logged out."],
  acc_member:["Agroguide सदस्य","Agroguide member"], acc_hist:["तुमचे जतन केलेले प्रश्न","Your saved questions"], acc_nohist:["अजून कोणतेही प्रश्न जतन केलेले नाहीत.","No saved questions yet."],
  k_mobile:["मोबाईल","Mobile"], k_village:["गाव","Village"], k_district:["जिल्हा","District"], k_since:["सदस्यत्व","Member since"],
@@ -906,21 +1005,11 @@ const SCHEMES = [
   desc:L('नैसर्गिक आपत्तीत पिकांचे नुकसान झाल्यास आर्थिक संरक्षण. शेतकऱ्याचा हिस्सा अत्यल्प असतो.','Financial cover if crops are damaged by natural calamities. The farmer pays only a small share of the premium.'),
   elig:L('अधिसूचित पिके घेणारे शेतकरी. सध्याच्या हंगामाचे नियम तपासा.','Farmers growing notified crops. Check the current season rules.'),
   docs:L('पीक पेरा, आधार, बँक पासबुक.','Crop-sowing declaration, Aadhaar, bank passbook.'), btn:L('येथे अर्ज करा','Apply here')},
- {cat:'money', c:'#d9560b', link:'https://ladakibahin.maharashtra.gov.in/',
-  title:L('मुख्यमंत्री माझी लाडकी बहीण योजना','Mukhyamantri Majhi Ladki Bahin Yojana'),
-  desc:L('महाराष्ट्रातील पात्र महिलांना दरमहा आर्थिक मदत.','Monthly financial assistance for eligible women in Maharashtra.'),
-  elig:L('२१-६५ वयोगटातील विवाहित/विधवा/गरजू महिला.','Married, widowed or needy women aged 21-65.'),
-  docs:L('आधार, रेशन कार्ड, अधिवास, बँक खाते.','Aadhaar, ration card, domicile, bank account.'), btn:L('येथे अर्ज करा','Apply here')},
  {cat:'money', c:'#d9560b', link:'https://sjsa.maharashtra.gov.in/',
   title:L('संजय गांधी निराधार योजना','Sanjay Gandhi Niradhar Yojana'),
   desc:L('निराधार, वृद्ध आणि अपंगांना मासिक अनुदान.','Monthly allowance for destitute, elderly and disabled persons.'),
   elig:L('निराधार किंवा ६५ वर्षांवरील अल्प उत्पन्न नागरिक.','Destitute or low-income citizens above 65.'),
   docs:L('उत्पन्न दाखला, वय दाखला, आधार.','Income certificate, age proof, Aadhaar.'), btn:L('येथे अर्ज करा','Apply here')},
- {cat:'money', c:'#d9560b', link:'https://www.indiapost.gov.in/',
-  title:L('सुकन्या समृद्धी योजना','Sukanya Samriddhi Yojana'),
-  desc:L('मुलींच्या शिक्षणासाठी आणि लग्नासाठी दीर्घकालीन बचत योजना.','A long-term savings scheme for a girl child\'s education and marriage.'),
-  elig:L('१० वर्षांच्या आतील मुलींच्या नावे खाते.','Account in the name of a girl under 10 years.'),
-  docs:L('मुलीचा जन्म दाखला, पालकांचे आधार.','Girl\'s birth certificate, parent\'s Aadhaar.'), btn:L('अधिक माहिती','More info')},
  {cat:'money', c:'#d9560b', link:'https://www.mudra.org.in/',
   title:L('प्रधानमंत्री मुद्रा योजना','PM Mudra Yojana'),
   desc:L('सूक्ष्म व्यवसायासाठी ₹१० लाखांपर्यंत विनातारण कर्ज.','Collateral-free loans up to ₹10 lakh for micro businesses.'),
@@ -1116,7 +1205,7 @@ const QA = {
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let toastTimer;
-function toast(msg){ const el=$('toast'); el.textContent=msg; el.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),3200); }
+function toast(msg, ms){ const el=$('toast'); el.textContent=msg; el.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'), ms || 3200); }
 function num(n){ return lang==='mr' ? String(n).replace(/\d/g, d => '०१२३४५६७८९'[d]) : String(n); }
 function money(n){ return '₹' + num(Number(n).toLocaleString('en-IN')); }
 
@@ -1163,11 +1252,6 @@ function renderAll(){
 /* =====================================================================
    HOME
    ===================================================================== */
-function renderStats(){
-  $('statsRow').innerHTML = [
-    [SCHEMES.length+'+', t('st_schemes')], [Object.keys(CROPS).length, t('st_crops')], [Object.keys(TECH).length, t('st_tech')], ['2', t('st_lang')]
-  ].map(s => `<div class="stat"><b>${num(s[0])}</b><span>${s[1]}</span></div>`).join('');
-}
 function renderFeatures(){
   const f = [['schemes','📜','f1'],['crops','🌱','f2'],['advice','💬','f3'],['help','🛟','f4'],['tech','🚜','f5'],['market','💹','f7'],['pests','🐛','f8'],['account','👤','f6']];
   $('featureGrid').innerHTML = f.map(x => `<button class="feature" onclick="showPage('${x[0]}')"><span class="ic">${x[1]}</span><span><h3>${t(x[2]+'_t')}</h3><p>${t(x[2]+'_d')}</p></span></button>`).join('');
@@ -1178,7 +1262,7 @@ function schemeCard(s){
     <p class="detail-text">${esc(tr(s.desc))}</p>
     <span class="label">${t('elig')}</span><p class="detail-text">${esc(tr(s.elig))}</p>
     <span class="label">${t('docs')}</span><p class="detail-text">${esc(tr(s.docs))}</p>
-    <a class="apply-link" href="${s.link}" target="_blank" rel="noopener">${esc(tr(s.btn))}</a><button class="share-btn" onclick="shareScheme(${SCHEMES.indexOf(s)})">📤 ${t('share_wa')}</button></div>`;
+    <a class="apply-link" href="${s.link}" target="_blank" rel="noopener">${esc(tr(s.btn))}</a></div>`;
 }
 function renderHomeSchemes(){ $('homeSchemes').innerHTML = SCHEMES.filter(s=>s.cat==='farm').slice(0,3).map(schemeCard).join(''); }
 function renderFaq(){
@@ -1613,66 +1697,82 @@ function renderPests(){
 }
 
 /* =====================================================================
-   WHATSAPP SHARE + INSTALL AS APP
+   INSTALL AS APP
    ===================================================================== */
-const siteUrl = () => location.href.split('#')[0];
-function waShare(text){ window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener'); }
-function shareSite(){ waShare(t('share_text') + '\n' + siteUrl()); }
-function shareScheme(idx){ const s = SCHEMES[idx]; if (s) waShare('*' + tr(s.title) + '*\n' + tr(s.desc) + '\n' + tr(L('पात्रता: ', 'Eligibility: ')) + tr(s.elig) + '\n' + s.link + '\n\nAgroguide: ' + siteUrl()); }
-
 let installEvt = null;
-window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; const b = $('installBtn'); if (b) b.classList.remove('hidden'); });
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; });
 window.addEventListener('appinstalled', () => { installEvt = null; const b = $('installBtn'); if (b) b.classList.add('hidden'); });
-function installApp(){ if (!installEvt) return; installEvt.prompt(); installEvt.userChoice.finally(() => { installEvt = null; $('installBtn').classList.add('hidden'); }); }
+function installApp(){
+  if (installEvt){
+    installEvt.prompt();
+    installEvt.userChoice.then(r => { if (r.outcome === 'accepted'){ installEvt = null; const b = $('installBtn'); if (b) b.classList.add('hidden'); } }).catch(() => {});
+    return;
+  }
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  toast(t(ios ? 'pwa_howto_ios' : 'pwa_howto'), 8000);
+}
 (function pwaSetup(){
   if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
-  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent), standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
-  if (ios && !standalone) window.addEventListener('DOMContentLoaded', () => { const h = $('iosHint'); if (h) h.classList.remove('hidden'); });
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if (standalone) window.addEventListener('DOMContentLoaded', () => { const b = $('installBtn'); if (b) b.classList.add('hidden'); });   // already installed
 })();
+
+/* =====================================================================
+   DESIGN V3 HELPERS: crop strip, page banners, count-up numbers, progress bar, share site
+   ===================================================================== */
+function setupBanners(){
+  [['schemes','📜'],['crops','🌱'],['pests','🐛'],['market','💹'],['help','🛟']].forEach(([id, emoji]) => {
+    const page = $(id); if (!page || page.querySelector('.banner')) return;
+    const wrap = page.querySelector('.wrap.pad'); if (!wrap) return;
+    const title = wrap.querySelector('.page-title'); if (!title) return;
+    const sub = wrap.querySelector('.page-sub');
+    const banner = document.createElement('div'); banner.className = 'banner'; banner.dataset.emoji = emoji;
+    const inner = document.createElement('div'); inner.className = 'wrap';
+    inner.appendChild(title); if (sub) inner.appendChild(sub);
+    banner.appendChild(inner); page.insertBefore(banner, wrap); wrap.classList.add('after-banner');
+  });
+}
+function renderStats(){
+  const items = [[SCHEMES.length + '+', t('st_schemes')], [Object.keys(CROPS).length, t('st_crops')], [Object.keys(TECH).length, t('st_tech')], [2, t('st_lang')]];
+  $('statsRow').innerHTML = items.map(s => `<div class="stat"><b>${num(s[0])}</b><span>${s[1]}</span></div>`).join('');
+}
+
+/* the one WhatsApp option: share the website link */
+const siteUrl = () => location.href.split('#')[0];
+function shareSite(){ window.open('https://wa.me/?text=' + encodeURIComponent(t('share_text') + '\n' + siteUrl()), '_blank', 'noopener'); }
+
+/* hero drone picture: your own file first (drone.gif / drone.jpg / drone.png), then the DJI link */
+const DRONE_SRC = ['drone.gif', 'drone.jpg', 'drone.png', 'https://www1.djicdn.com/cms/uploads/fd7e1258d4e8b9fb2330f68b92170422.gif'];
+function droneNext(img){
+  if (!img) return;
+  const i = +(img.dataset.i || 0);
+  if (i >= DRONE_SRC.length) return;            // nothing loaded: the drawn drone stays visible
+  img.dataset.i = i + 1; img.src = DRONE_SRC[i];
+}
 
 /* =====================================================================
    INIT
    ===================================================================== */
 window.addEventListener('scroll', () => { $('toTop').style.display = window.scrollY > 500 ? 'block' : 'none'; }, {passive:true});
 (function init(){
-  applyI18n(); renderAll(); authTab('login');
+  setupBanners(); droneNext($('droneImg')); applyI18n(); renderAll(); authTab('login');
   loadMe().then(() => { renderAuthUI(); renderAccount(); if (currentPage === 'advice') prefillAdvice(); });
   const h = (location.hash || '').replace('#','');
   if (h && document.getElementById(h) && document.getElementById(h).classList.contains('page')) showPage(h);
 })();
 
-/* ---------- scroll-reveal animation ---------- */
-(function revealSetup(){
-  document.documentElement.classList.add('js');
-  if (!('IntersectionObserver' in window)) { document.documentElement.classList.remove('js'); return; }
-  const SEL = '.feature,.step,.content-card,.faq details,.tech-card,.panel,.info-card,.exh,.cta,.stat,.sec-head,.page-title';
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      const el = en.target; io.unobserve(el);
-      el.classList.add('in');
-      setTimeout(() => { el.classList.remove('reveal','in'); el.style.transitionDelay = ''; }, 900);   // hand control back to hover styles
-    });
-  }, {threshold: 0.12});
-  let n = 0;
-  function scan(){
-    document.querySelectorAll(SEL).forEach(el => {
-      if (el.dataset.rv) return; el.dataset.rv = '1';
-      el.classList.add('reveal'); el.style.transitionDelay = ((n++ % 4) * 80) + 'ms'; io.observe(el);
-    });
-  }
-  let t; new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 60); }).observe(document.body, {childList:true, subtree:true});
-  scan();
-})();
 </script>
 
 <script type="module">
 /* ===== 1) PASTE YOUR FIREBASE SETTINGS HERE (Firebase console > Project settings > Your apps > Web app) ===== */
 const firebaseConfig = {
-  apiKey: "PASTE_API_KEY_HERE",
-  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  appId: "PASTE_APP_ID_HERE"
+  apiKey: "AIzaSyAaqUh8H9b4DyCnS_FKYoOUPUhQXlW5hmk",
+  authDomain: "agroguide-8b810.firebaseapp.com",
+  projectId: "agroguide-8b810",
+  storageBucket: "agroguide-8b810.firebasestorage.app",
+  messagingSenderId: "939262307227",
+  appId: "1:939262307227:web:ff18bff0ee096c5d3bcf3e",
+  measurementId: "G-E7D2R4KSN5"
 };
 /* =============================================================================================================== */
 const CDN = "https://www.gstatic.com/firebasejs/10.14.1/";
